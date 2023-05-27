@@ -6,33 +6,19 @@
 	    <script type="text/javascript" src="js/book_choice.js"></script>
     </head>
 
-    <style>
-        body{
-            background-color : #a4c396;
-            height : 100%;
-            margin : 80px;
-        }
-        #title{
-            color : #036b3f;
-            font-size: 60px;
-        }
-        #board{
-            background-color : #036b3f;
-            width : 1350px;
-            height : 400px;
-        }
-        #wood{
-            margin : 0px;
-            float:left;
-        }
-    </style>
-
-    <body>
-        <div id="title">choose a book!</div>
-        <div id="board"></div>
+    <body id="book_choice_body">
+        <div id="book_choice_title">choose a book!</div>
+        <div id="book_choice_board">
+            <div class="book_choice_list">
+                <img id="book" src="./book_img/book1.jpeg" width="240">
+                <img id="book" src="./book_img/book2.jpeg" width="240">
+                <img id="book" src="./book_img/book3.jpeg" width="240">
+                <img id="book" src="./book_img/book4.jpeg" width="240">
+            </div>
+        </div>
     </body>
     <footer>
-        <img id="wood", src="./wood.png"></img>
+        <img id="book_choice_wood", src="./wood3.png"></img>
     </footer>
     
 </html>
