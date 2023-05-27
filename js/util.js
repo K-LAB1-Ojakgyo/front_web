@@ -81,7 +81,7 @@ function getQuests() {
      */
 }
 
-function getRandomBooks() {
+function getRandomBooks() { /*예담이가 할것*/
     /**
      * 서버 통신 필요
      * 안읽은 책 중에서 랜덤한 책 리스트 받아오기

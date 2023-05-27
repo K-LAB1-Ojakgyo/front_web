@@ -6,8 +6,9 @@
 #book_choice_title{
     color : #036b3f;
     font-size: 60px;
+    font-weight:bold;
     margin-left : 80px;
-    margin-top : 40px;
+    margin-top : 30px;
 }
 #book_choice_board{
     background-color : #036b3f;
@@ -23,14 +24,18 @@
     display : flex;
     flex-wrap : wrap;
     align-items:flex-start;
-    margin : 30px 0;
+    margin : 30px 40px;
 }
 
 .book_choice_list img{
     width : calc(33.333%-10px);
     margin:25px auto;
-    padding : 15px;
-    
+}
+
+.book_choice_list img:hover{
+    transition: 1s ease-out;
+    border: 10px solid salmon;
+    width:"230";
 }
 
 .book_choice_list img:nth-of-type(4n),
@@ -62,33 +67,31 @@
 
 #book_choice_refresh{
     margin-left : 200px;
-    height:130px;
-    width:320px;
+    height:132px;
+    width:324px;
+}
+
+#book_choice_refresh:hover{
+    height:142px;
+    width:334px;
 }
 
 #book_choice_select{
-    height:130px;
-    width:320px;
+    height:132px;
+    width:324px;
     float:right;
     margin-right : 200px;
 }
 
-#book_choice_refresh_text{
-    color:#FF8E00;
-    font-size:40pt;
-    font-weight:bold;
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-280%,-40%);
+#book_choice_select:hover{
+    height:142px;
+    width:334px;
 }
 
-#book_choice_select_text{
-    color:#FF8E00;
-    font-size:40pt;
-    font-weight:bold;
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(225%,-40%);
+
+#book_choice_logout{
+    float:right;
+    width:150px;
+    height:60px;
+    margin:0;
 }

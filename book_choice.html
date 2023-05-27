@@ -7,13 +7,15 @@
     </head>
 
     <body id="book_choice_body">
+        
+        <img id="book_choice_logout" src="./book_img/logout.png">
         <div id="book_choice_title">choose a book!</div>
         <div id="book_choice_board">
             <div class="book_choice_list">
-                <img id="book" src="./book_img/book1.jpeg" width="240">
-                <img id="book" src="./book_img/book2.jpeg" width="240">
-                <img id="book" src="./book_img/book3.jpeg" width="240">
-                <img id="book" src="./book_img/book4.jpeg" width="240">
+                <img id="book" src="./book_img/book1.jpeg" width="240" onclick="">
+                <img id="book" src="./book_img/book2.jpeg" width="240" onclick="">
+                <img id="book" src="./book_img/book3.jpeg" width="240" onclick="">
+                <img id="book" src="./book_img/book4.jpeg" width="240" onclick="">
             </div>
         </div>
         <div id="book_choice_wood">
@@ -22,10 +24,8 @@
     </body>
 
     <footer id="book_choice_footer">
-        <img id="book_choice_refresh", src="./book_img/button.png">
-        <p id="book_choice_refresh_text">refresh</p>
-        <img id="book_choice_select", src="./book_img/button.png">
-        <p id="book_choice_select_text">select</p>
+        <img id="book_choice_refresh", src="./book_img/refresh_button.png" onclick="refreshBtnClicked()">
+        <img id="book_choice_select", src="./book_img/select_button.png" onclick="selectBtnClicked()">
     </footer>
     
 </html>
