@@ -1,3 +1,5 @@
+var isClicked=0;
+
 function showRandomBooks() {
     /**
      * util의 getRandomBooks를 활용하여 정보를 얻어온후
@@ -26,6 +28,12 @@ function logoutBtnClicked() {
 
 function selectBtnClicked() {
     // 완료 다이얼로그가 뜨면서 5초 후 login 화면으로 이동
+    if(isClicked==1){
+        /*완료 다이얼로그*/
+        $('#book_choice_select').click(function(){
+            $('#book_choice_dialog').dialog();
+        });
+    }
 }
 
 function addClickEffect(element){
@@ -34,4 +42,5 @@ function addClickEffect(element){
         images[i].classList.remove("clicked");
     }
     element.classList.add("clicked");
+    isClicked=1;
 }

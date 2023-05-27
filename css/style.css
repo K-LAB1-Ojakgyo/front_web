@@ -1,25 +1,31 @@
 #book_choice_body{
-    background-color : #a4c396;
-    height : 100%;
-    /*margin : 80px;*/
+    margin: 0 auto;
+	width: 1440px;
+	background-color: #6c9658;
 }
+.page{
+    background-color: #a4c396;
+    width: 1440px;
+    height: 960px;
+}
+
 #book_choice_title{
     color : #036b3f;
     font-size: 60px;
     font-weight:bold;
     margin-left : 80px;
-    margin-top : 30px;
+    padding-top:40px;
 }
 #book_choice_board{
     background-color : #036b3f;
     width : 1350px;
     height : 400px;
-    margin-left : 80px;
+    padding-top:5px;
+    padding-bottom:30px;
+    margin-left: auto;
+    margin-right: auto;
 }
-#book_choice_wood{
-    margin : 0px;
-    float:left;
-}
+
 .book_choice_list{
     display : flex;
     flex-wrap : wrap;
@@ -43,12 +49,6 @@
     cursor: pointer;
     border: 10px solid #ffcc4c;
 }
-
-/* .book_choice_list img:checked{
-    cursor: pointer;
-    border: 10px solid salmon;
-    width:"230";
-} */
 
 .clicked{
     border: 10px solid #ffcc4c;
@@ -77,8 +77,8 @@
     }
 }
 
-#book_choice_footer{
-    margin:auto;
+#book_choice_button{
+    margin:50px auto;
     position:relative;
 }
 
