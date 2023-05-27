@@ -32,9 +32,26 @@
     margin:25px auto;
 }
 
-.book_choice_list img:hover{
-    transition: 1s ease-out;
+[type=radio]{
+    position:absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.book_choice_list img:active{
+    cursor: pointer;
+    border: 10px solid #ffcc4c;
+}
+
+/* .book_choice_list img:checked{
+    cursor: pointer;
     border: 10px solid salmon;
+    width:"230";
+} */
+
+.clicked{
+    border: 10px solid #ffcc4c;
     width:"230";
 }
 
@@ -72,8 +89,7 @@
 }
 
 #book_choice_refresh:hover{
-    height:142px;
-    width:334px;
+    transform: scale(1.1)
 }
 
 #book_choice_select{
@@ -84,8 +100,7 @@
 }
 
 #book_choice_select:hover{
-    height:142px;
-    width:334px;
+    transform: scale(1.1);
 }
 
 

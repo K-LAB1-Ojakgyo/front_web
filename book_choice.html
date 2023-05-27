@@ -7,15 +7,23 @@
     </head>
 
     <body id="book_choice_body">
-        
         <img id="book_choice_logout" src="./book_img/logout.png">
         <div id="book_choice_title">choose a book!</div>
         <div id="book_choice_board">
             <div class="book_choice_list">
-                <img id="book" src="./book_img/book1.jpeg" width="240" onclick="">
-                <img id="book" src="./book_img/book2.jpeg" width="240" onclick="">
-                <img id="book" src="./book_img/book3.jpeg" width="240" onclick="">
-                <img id="book" src="./book_img/book4.jpeg" width="240" onclick="">
+                <input type="radio" name="book">
+                <img class="book" id="book1" src="./book_img/book1.jpeg" width="240" onclick="addClickEffect(this)">
+                <p id="print"></p>
+                </input>
+                <input type="radio" name="book">
+                <img class="book" id="book2" src="./book_img/book2.jpeg" width="240" onclick="addClickEffect(this)">
+                </input>
+                <input type="radio" name="book">
+                <img class="book" id="book3" src="./book_img/book3.jpeg" width="240" onclick="addClickEffect(this)">
+                </input>   
+                <input type="radio" name="book">
+                <img class="book" id="book4" src="./book_img/book4.jpeg" width="240" onclick="addClickEffect(this)">
+                </input>  
             </div>
         </div>
         <div id="book_choice_wood">
