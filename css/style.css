@@ -14,7 +14,8 @@
     font-size: 60px;
     font-weight:bold;
     margin-left : 80px;
-    padding-top:40px;
+    padding-top:80px;
+    height : 100px;
 }
 #book_choice_board{
     background-color : #036b3f;
@@ -52,7 +53,7 @@
 
 .clicked{
     border: 10px solid #ffcc4c;
-    width:"230";
+    /*width:"230";*/
 }
 
 .book_choice_list img:nth-of-type(4n),
@@ -110,3 +111,31 @@
     height:60px;
     margin:0;
 }
+
+#book_choice_login_or_back{
+    height:132px;
+    width:324px;
+}
+
+#book_choice_dialog{
+    width: 768px;
+    height: 450px;
+    text-align: center;
+   overflow: hidden;
+    border-radius: 90px;
+    border-color: #036b3f;
+    border-width: 7px;
+}
+
+#book_choice_seconds{/*5초후..*/
+    font-size: 50px;
+    color:#807474;
+    margin-bottom: 30px;
+}
+
+#dialog_title{
+    font-size: 60px;
+    margin:10px auto;
+}
+
+
