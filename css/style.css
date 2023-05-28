@@ -1,0 +1,156 @@
+
+body{
+	margin: 0 auto;
+	width: 1440px;
+	background-color: #6c9658;
+}
+.page{
+    background-color: #a4c396;
+    width: 1440px;
+    height: 960px;
+}
+.loginBtn{
+  transition: transform 0.3s ease; /* 트랜지션 속성 추가 */
+  top:0;
+}
+.loginBtn:hover{
+  transform: scale(1.1); /* 마우스를 올렸을 때 크기를 1.1배로 확대 */
+}
+/* login page style */
+/* #login_page { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+#login_wrapper {
+  text-align: center;
+  top:0;
+  display: grid;
+  grid-template-rows: 400px 100px 250px; /* 각 행의 높이 설정 */
+  place-items: center;
+}
+#title{
+    text-align: center;
+    font-size: 90px;
+    width: auto;
+    margin: 30px;
+    max-height: 100%;
+    align-self: end;
+}
+#id_field{
+  display: block;
+  max-height: 100%;
+}
+
+#id_field>input{
+    width:17.07cm;
+    height:1.38cm;
+    font-size: 28px;
+    border-radius: 90px;
+    border: none; 
+    /* position: absolute; */
+    bottom:0;
+}
+#submit{
+
+  align-self: start;
+}
+#start_login_btn{
+  text-align: center;
+  max-height: 100%;
+}
+
+#check_id_dialog{
+    width: 768px;
+    height: 450px;
+    text-align: center;
+   overflow: hidden;
+    border-radius: 90px;
+    border-color: #036b3f;
+    border-width: 7px;
+}
+#dialog_id{
+    font-size: 50px;
+    color:#807474;
+    margin-bottom: 30px;
+}
+#dialog_title{
+    font-size: 60px;
+    margin:10px auto;
+}
+#dialog_info{
+  font-size: 30px;
+  margin: 0 auto;
+}
+#dialog_btn_form{
+  position: relative;
+  height:150px;
+}
+#back_btn{
+  position: absolute;
+  left: 0;
+   margin-top:25px;
+}
+
+#login_btn {
+  position: absolute;
+  right: 0;
+  margin-top:25px;
+
+}
+
+
+/* result page style */
+#result_wrapper {
+    text-align: center;
+    position: relative;
+    
+    /* margin: auto auto 0 auto; */
+    top: 0;
+  }
+  .nullBadge{
+    width: 20px;
+    height: 20px;
+  }
+  #badge_board {
+    position: relative;
+    width: 1224px;
+    height: 900px;
+    /* background-image: url("./res/Result_img/badgeBoard.png");
+    background-size: cover;
+    background-position: center; */
+    margin: 0 auto auto auto;
+  
+  }
+  #result_title{
+    width:12.3cm;
+    height:5.3cm;
+  }
+  #collection {
+    width: 11cm;
+    height: 10cm;
+
+    position: relative;
+    display: inline-block;
+    overflow: scroll;
+    overflow-x: hidden;
+    /* flex-wrap: wrap; */
+    /* justify-content: space-between;
+    z-index: 1; */
+    /* position: absolute; */
+  }
+  #new_badge_zone{
+    display: inline-block;
+
+  }
+  #collection img {
+    position: relative;
+    overflow: hidden;
+    width: 3cm;
+    height: 3cm;
+  }
+  .newBadge{
+    width: 9cm;
+    height: 9cm;
+  }
