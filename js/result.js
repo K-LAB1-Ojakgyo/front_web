@@ -1,8 +1,8 @@
-function showBadges(bookcnt,imgPath,newImgPath) {
+function showBadges(bookcnt,imgPath) {
     /**서버에서 받아올 정보들 임시로 할당해둠 */
     var bookcnt=15;
-    var imgPath=["./res/badge/badge_bird.svg","./res/badge/badge_elephant.svg","./res/badge/badge_owl.svg","./res/badge/badge_rabbit.svg"]
-    var newImgPath=["./res/badge/badge_rabbit.svg"];
+    var imgPath=["./res/badge/badge_bird.svg","./res/badge/badge_elephant.svg","./res/badge/badge_owl.svg","./res/badge/badge_rabbit.svg"];//getBadges()
+    var newImgPath=["./res/badge/badge_rabbit.svg"];    //getRecentBadges()
     /**
      * util의 getBadges를 활용하여
      * 배지 창을 보여줘야 함
@@ -57,7 +57,8 @@ function logoutBtnClicked() {
 
 $(document).ready(function() {
     // 페이지 로드 완료 시 실행될 코드
+    $("#collection").css("overflow-y", "scroll");
+  
+   
     showBadges(); // result 함수 호출
   });
-
-  

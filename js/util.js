@@ -35,6 +35,7 @@ function logout() {
      * 가지고 있는 사용자 정보들을 모두 초기화
      * 메인화면으로 옮기기
      */
+
 }
 
 function login() {
@@ -52,9 +53,10 @@ function login() {
     }else{
         $("#dialog_id").text('ID : ');
         $("#dialog_id").append(document.createTextNode(id_value));
-        const valid_id = true; //서버에 아이디(id_value) 보내서 아이디 있는지 없는지 확인, 있으면 기존유저->true/없으면 뉴유저->false
+        const valid_id = false; //서버에 아이디(id_value) 보내서 아이디 있는지 없는지 확인, 있으면 기존유저->true/없으면 뉴유저->false
         $("#input_id").val('');
         if (valid_id) {     //아이디 있는경우
+            $("#dialog_info").text("");
             var infoNode = "Your account exist!";
             $("#dialog_info").append(infoNode);
             idCheckDialog.showModal();
@@ -66,6 +68,7 @@ function login() {
                 
             });
         } else {    //아이디 없는경우 new user
+            $("#dialog_info").text("");
             var infoNode = "Since the account does not exist," + "<br>" + "a new account will be created.";
             $("#dialog_info").append(infoNode);
             idCheckDialog.showModal();
@@ -104,6 +107,7 @@ function getNowChallenge() {
 }
 
 function getBadges() {
+    
     /**
      * 서버 통신 필요
      * 모든 모은 배지 정보 받아오기 (최근 순서로 sort되어 있어야 함)
