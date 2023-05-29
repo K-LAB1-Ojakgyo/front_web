@@ -2,11 +2,33 @@
     <head>
         <link rel="stylesheet" type="text/css" href="css/style.css">
 	    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script type="text/javascript" src="js/util.js"></script>
-	    <script type="text/javascript" src="js/quiz.js"></script>
+        <script type="text/javascript" src="./js/util.js"></script>
     </head>
 
     <body>
-        <h1>quiz</h1>
+        <div class = "page">
+            <div id="logout">
+
+            </div>
+            <div class="quizpage">
+                <h1 id="challenge">Challenge!</h1>
+                <h2 id="title">Title</h2>
+                <img src="./res/1.png" class="answerimg" id="answer1">
+                <img src="./res/2.png" class="answerimg" id="answer2">
+                <img src="./res/3.png" class="answerimg" id="answer3">
+                <img src="./res/4.png" class="answerimg" id="answer4">
+
+                <img src="./res/1.png" class="quizimg" id="quiz1" draggable="true">
+                <img src="./res/2.png" class="quizimg" id="quiz2" draggable="true">
+                <img src="./res/3.png" class="quizimg" id="quiz3" draggable="true">
+                <img src="./res/4.png" class="quizimg" id="quiz4" draggable="true">
+                
+                <img src="./res/button.png" class="buttonimg" id="backbtn">
+                <img src="./res/button.png" class="buttonimg" id="submitbtn">
+
+            </div>
+        </div>
+        </div>
+        <script type="text/javascript" src="./js/quiz.js"></script>
     </body>
 </html>
