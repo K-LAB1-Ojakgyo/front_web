@@ -46,20 +46,6 @@ function login() {
      */
 }
 
-function getRecentBadges() {
-    /**
-     * 서버 통신 필요
-     * 메인화면을 위한 최근 배지 정보 받기
-     */
-}
-
-function getRecentQuests() {
-    /**
-     * 서버 통신 필요
-     * 메인화면을 위한 최근 퀘스트 정보 받기
-     */
-}
-
 function getNowChallenge() {
     /**
      * 서버 통신 필요
