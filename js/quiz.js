@@ -80,7 +80,7 @@ var shuffledNumbers = shuffleNumbers();
 
 for(var i = 1; i<=4; i++){
   var image = document.getElementById("quiz"+i);
-  image.src = "./res/ans"+shuffledNumbers[i-1]+".png";
+  image.src = "./res/img/ans"+shuffledNumbers[i-1]+".png";
 }
 
 var submitbtn = document.getElementById("submitbtn");
