@@ -9,6 +9,7 @@ function showRandomBooks() {
         $(img_id).attr("src",image_array[i]);
         $(img_id).removeClass('clicked');
     }
+    isClicked=0;
 }
 
 function refreshBtnClicked() {
