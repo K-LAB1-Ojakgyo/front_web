@@ -27,6 +27,7 @@ function showLogoutDialog() {
     /**
      * 로그아웃 다이얼로그 logout()을 활용
      */
+    logout();
 }
 
 function logout() {
@@ -35,7 +36,7 @@ function logout() {
      * 가지고 있는 사용자 정보들을 모두 초기화
      * 메인화면으로 옮기기
      */
-
+    window.location.href = "login.html";
 }
 
 function login() {

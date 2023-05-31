@@ -8,163 +8,29 @@ body {
   width: 1440px;
   height: 960px;
 }
-
-.btnMove {
+.chick_btn {
+  width: 324px;
+  height: 132px;
+  background-image: url('../res/img/chick_btn.png');
+  background-size: contain;
+  text-align: center;
+  line-height: 162px;
+  font-family: 'Baloo 2', 'sans-serif', 'monospace';
+  color: #FF8E00;
+  font-size: 50px;
   transition: transform 0.3s ease;
-  top: 0;
 }
+#btn_move{
+  transition: transform 0.3s ease;
 
-.btnMove:hover {
+}
+#btn_move:hover{
+  transform: scale(1.2);
+
+}
+.chick_btn:hover {
   transform: scale(1.1);
 }
 
-#book_choice_logout {
-  float: right;
-  width: 150px;
-  height: 60px;
-  margin: 0;
-}
 
-#login_wrapper {
-  text-align: center;
-  top: 0;
-  display: grid;
-  grid-template-rows: 400px 100px 250px;
-  place-items: center;
-}
 
-#title {
-  text-align: center;
-  font-size: 90px;
-  width: auto;
-  margin: 30px;
-  max-height: 100%;
-  align-self: end;
-}
-
-#id_field {
-  position: relative;
-  display: block;
-  max-height: 100%;
-  padding-right: 20px;
-}
-
-#id_field > input {
-  width: 17.07cm;
-  height: 1.38cm;
-  font-size: 28px;
-  border-radius: 50px;
-  border: none;
-  bottom: 0;
-  padding-left: 20px;
-}
-
-#input_deco {
-  position: absolute;
-  right: 0;
-}
-
-#submit {
-  align-self: start;
-}
-
-#start_login_btn {
-  text-align: center;
-  max-height: 100%;
-}
-
-#check_id_dialog {
-  width: 768px;
-  height: 450px;
-  text-align: center;
-  overflow: hidden;
-  border-radius: 90px;
-  border-color: #036b3f;
-  border-width: 7px;
-  margin-top: 170px;
-}
-
-#dialog_id {
-  font-size: 50px;
-  color: #807474;
-  margin-bottom: 30px;
-}
-
-#dialog_title {
-  font-size: 60px;
-  margin: 10px auto;
-}
-
-#dialog_info {
-  font-size: 30px;
-  margin: 0 auto;
-}
-
-#dialog_btn_form {
-  position: relative;
-  height: 150px;
-}
-
-#back_btn {
-  position: absolute;
-  left: 0;
-  margin-top: 25px;
-}
-
-#login_btn {
-  position: absolute;
-  right: 0;
-  margin-top: 25px;
-}
-
-/* result page style */
-
-#result_wrapper {
-  text-align: center;
-  position: relative;
-}
-
-.nullBadge {
-  width: 20px;
-  height: 20px;
-}
-
-#badge_board {
-  position: absolute;
-  width: 1200px;
-  height: 860px;
-  margin: 0;
-  right: 120px;
-  left: 120px;
-  border-top-left-radius: 100px;
-  border-top-right-radius: 100px;
-  bottom: 0;
-  background-color: #87aa77;
-}
-
-#result_title {
-  width: 12.3cm;
-  height: 5.3cm;
-  display: block;
-  margin: 0 auto;
-}
-
-#collection {
-  width: 13cm;
-  height: 13cm;
-  position: relative;
-  display: inline-block;
-  overflow: scroll;
-  overflow-x: hidden;
-  margin-right: 105px;
-}
-
-#new_badge_zone {
-  display: inline-block;
-  margin-left: 20px;
-}
-
-#result_next_btn {
-  display: block;
-  margin: 15px auto 0 auto;
-}

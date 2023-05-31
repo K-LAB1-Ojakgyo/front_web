@@ -5,5 +5,5 @@ function btnMoveClicked() {
 }
 
   $(document).ready(function() {
-   
+    $("#start_login_btn").click(function(){btnMoveClicked()});
   });

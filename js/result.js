@@ -23,7 +23,7 @@ function showBadges(bookcnt,imgPath) {
 
         img = $('<img>')
         .attr('src',element)
-        .attr('class',"btnMove")
+        .attr('id',"btn_move")
         .css(badgeImgProperty);
         $('#collection').append(img);
         bookcnt--;
@@ -57,8 +57,11 @@ function logoutBtnClicked() {
 
 $(document).ready(function() {
     // 페이지 로드 완료 시 실행될 코드
+    $("#result_next_btn").click(function(){
+        nextBtnClicked();
+    })
     $("#collection").css("overflow-y", "scroll");
-  
+  $("")
    
     showBadges(); // result 함수 호출
   });
