@@ -1,0 +1,148 @@
+* { padding: 0; margin: 0; }
+* { font-family: 'Baloo 2', sans-serif, monospace; color: white;}
+body{
+	margin: 0 auto;
+	width: 1440px;
+	background-color: #ffffff;
+}
+
+.page{
+    background-color: #a4c396;
+    width: 1440px;
+    height: 960px;
+    position: fixed;
+    margin: 0 auto;
+}
+
+.panel{
+    border-radius: 100px 100px 0 0;
+    box-shadow: 5px 0 5px grey;
+    position: absolute;
+    height: 860px;
+    bottom: 0;
+}
+
+.panel .title{
+    margin: 40px;
+    font-size: 70px;
+    text-align: center;
+    height: 113px;
+}
+
+#achievementsHalfPanel{
+    background-color: #87AA77;
+    width: 600px;
+    left: 100px;
+}
+
+#challengeHalfPanel{
+    background-color: #5E976A;
+    width: 600px;
+    right: 100px;
+}
+
+.badgeBack{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 282px;
+    object-fit: contain;
+}
+#badgeBack1{
+    left: 75px;
+}
+#badgeBack2{
+    left: 250px;
+}
+#badgeBack3{
+    left: 420px;
+}
+
+.bookBack{
+    width: 100px;
+    height: auto;
+    position: absolute;
+    top: 457px;
+    object-fit: contain;
+}
+#bookBack1{
+    left: 75px;
+}
+#bookBack2{
+    left: 250px;
+}
+#bookBack3{
+    left: 420px;
+}
+
+#bookTitleMain{
+    font-size: 40px;
+    text-align: center;
+    width: 600px;
+    position: absolute;
+    top: 170px;
+}
+
+#challengeBack{
+    position: absolute;
+    top: 250px;
+    /* left: 150px; */
+    margin: 0 auto;
+    width: 600px;
+
+    height: 400px;
+    
+    /* border-radius: 5%; */
+    /* background-color: #4B7F55; */
+    background-size: contain;
+    object-fit: contain;
+}
+
+#refreshBtn{
+    position: absolute;
+    top: 250px;
+    left: 490px;
+}
+
+.btnMain{
+    position: absolute;
+    bottom: 40px;
+    left: 138px;    
+    width: 324px; 
+    height: 132px;    
+    background-image: url('../res/button.png');
+    background-size: contain;
+    color: #FF8E00;
+    text-align: center;
+    font-size: 50px;
+    line-height: 162px;
+    
+}
+
+.btnMove{
+    transition: transform 0.3s ease;
+}
+
+.btnMove:hover{
+    transform: scale(1.1);
+}
+
+#btnLogout{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 210px;
+    height: 50px;
+    margin: 0;
+}
+#btnLogout p{
+    position: absolute;
+    top: -10px;
+    right: 60px;
+    font-size: 50px;
+}
+#btnLogout img{
+    position: absolute;
+    top: 0;
+    right: 0;
+}

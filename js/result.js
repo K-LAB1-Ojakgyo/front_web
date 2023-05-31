@@ -1,6 +1,6 @@
 function showBadges(bookcnt,imgPath) {
     /**서버에서 받아올 정보들 임시로 할당해둠 */
-    var bookcnt=15;
+    var bookcnt=14;
     var imgPath=["./res/badge/badge_bird.svg","./res/badge/badge_elephant.svg","./res/badge/badge_owl.svg","./res/badge/badge_rabbit.svg"];//getBadges()
     var newImgPath=["./res/badge/badge_rabbit.svg"];    //getRecentBadges()
     /**

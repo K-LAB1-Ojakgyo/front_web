@@ -51,12 +51,18 @@
   #check_id_dialog {
     width: 768px;
     height: 450px;
+
+    position: absolute;
+    /* width: 20.33cm;
+    height: 11.89cm; */
+    left: 360px;
+    top: 200px;
     text-align: center;
     overflow: hidden;
     border-radius: 90px;
     border-color: #036b3f;
     border-width: 7px;
-    margin-top: 170px;
+   
   }
   
   #dialog_id {

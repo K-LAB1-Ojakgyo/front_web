@@ -54,7 +54,7 @@ function login() {
     }else{
         $("#dialog_id").text('ID : ');
         $("#dialog_id").append(document.createTextNode(id_value));
-        const valid_id = false; //서버에 아이디(id_value) 보내서 아이디 있는지 없는지 확인, 있으면 기존유저->true/없으면 뉴유저->false
+        const valid_id = true; //서버에 아이디(id_value) 보내서 아이디 있는지 없는지 확인, 있으면 기존유저->true/없으면 뉴유저->false
         $("#input_id").val('');
         if (valid_id) {     //아이디 있는경우
             $("#dialog_info").text("");
@@ -62,7 +62,7 @@ function login() {
             $("#dialog_info").append(infoNode);
             idCheckDialog.showModal();
             $("#login_btn").click(function() {
-                window.location.href = "result.html";
+                window.location.href = "main.html";
             });
             $("#back_btn").click(function() {
                 idCheckDialog.close();
