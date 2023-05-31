@@ -82,6 +82,7 @@ body{
     position: absolute;
     bottom: 20px;
 }
+
 #backbtn{
     left: 70px;
     transition: transform 0.3s ease;
@@ -94,5 +95,40 @@ body{
     transition: transform 0.3s ease;
 }
 #submitbtn:hover{
+    transform: scale(1.1);
+}
+.dialog{
+    position: absolute;
+    width: 20.33cm;
+    height: 11.89cm;
+    left: 170px;
+    top: 130px;
+    display: none;
+}
+#dialbtn{
+    width: 8.57cm;
+    height: 3.5cm;
+    position: absolute;
+    bottom: 100px;
+    left: 580px;
+    display: none;
+    transition: transform 0.3s ease;
+}
+#dialbtn:hover{
+    transform: scale(1.1);
+}
+
+#nextbtn{
+    right: 70px;
+    transition: transform 0.3s ease;
+}
+#nextbtn:hover{
+    transform: scale(1.1);
+}
+#homebtn{
+    right: 70px;
+    transition: transform 0.3s ease;
+}
+#homebtn:hover{
     transform: scale(1.1);
 }

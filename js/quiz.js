@@ -4,6 +4,8 @@ var quizpage = document.querySelector(".quizpage");
 var originalX, originalY;
 var offsetX, offsetY;
 var dragging = false;
+var submit = false;
+var correct = false
 
 // 각각의 드래그 가능한 이미지 요소에 대해 이벤트 핸들러 등록
 quizImgs.forEach(function(quizImg) {
@@ -14,7 +16,6 @@ quizImgs.forEach(function(quizImg) {
     originalY = quizImg.style.top;
     offsetX = event.clientX - quizImg.offsetLeft;
     offsetY = event.clientY - quizImg.offsetTop;
-    //alert(offsetX);
   });
 
   quizImg.addEventListener("drag", function(event) {
@@ -26,9 +27,10 @@ quizImgs.forEach(function(quizImg) {
 
   quizImg.addEventListener("dragend", function(event) {
     dragging = false;
-    
+    quizImg.style.left = event.clientX - offsetX + "px";
+    quizImg.style.top = event.clientY - offsetY + "px";
 
-    for (var i = 1; i < 5; i++) {
+    for (var i = 1; i < 5; i++) { //1부터 4까지의 answer 영역에 들어갔는지 확인
       var answerImg = document.querySelector("#answer"+i);
       var rect = answerImg.getBoundingClientRect();
       var answerImgX = rect.left;
@@ -37,10 +39,8 @@ quizImgs.forEach(function(quizImg) {
       var answerImgHeight = rect.height;
   
       var quizImgRect = quizImg.getBoundingClientRect();
-      var quizImgX = quizImgRect.left;
-      var quizImgY = quizImgRect.top;
-      //alert(quizImgX);
-      alert(answerImgX + " " + answerImgY +" "+ quizImgX+" "+quizImgY);
+      var quizImgX = (quizImgRect.left+quizImgRect.right)/2;
+      var quizImgY = (quizImgRect.top+quizImgRect.bottom)/2;
       if (
         quizImgX >= answerImgX &&
         quizImgX <= answerImgX + answerImgWidth &&
@@ -48,39 +48,19 @@ quizImgs.forEach(function(quizImg) {
         quizImgY <= answerImgY + answerImgHeight
       ) {
         // 드롭된 이미지가 answerImg 클래스를 가지는 요소에 드롭되었을 때의 처리
-        alert("Dropped on answerImg!");
-        break; // 반복문 종료
+        if(answerImg.src.includes("ans")){ // 이미 이미지가 들어 있는 경우 -> 교체
+          var curnum = Number(answerImg.src.charAt(answerImg.src.length-5));
+          document.querySelector("#quiz"+(shuffledNumbers.indexOf(curnum)+1)).style.display = "block";
+        }
+        answerImg.src = quizImg.src;
+        quizImg.style.display = "none";
+        break;
       }
     }
     quizImg.style.left = originalX;
     quizImg.style.top = originalY;
   });
 });
-
-// var answerImgs = document.querySelectorAll(".answerimg");
-
-// answerImgs.forEach(function(answerImg) {
-//   answerImg.addEventListener("dragover", function(event) {
-//     event.preventDefault();
-//   });
-
-//   answerImg.addEventListener("drop", function(event) {
-//     event.preventDefault();
-
-//     // 드롭된 요소 처리
-//     var droppedItem = event.dataTransfer.getData("text/plain");
-//     var quizImg = document.getElementById(droppedItem);
-//     // 만약 드롭된 요소가 quiz 클래스를 가진 이미지인 경우에 대한 처리
-//     if (quizImg.classList.contains("quizimg")) {
-//       // 드롭된 요소를 answerimg 클래스 영역에 추가하는 로직을 구현
-//       //answerImg.appendChild(quizImg);
-//       alert("짠");
-      
-//     }
-//   });
-// });
-
-
 
 
 function shuffleNumbers() {
@@ -107,11 +87,39 @@ var submitbtn = document.getElementById("submitbtn");
 var backbtn = document.getElementById("backbtn");
 
 submitbtn.addEventListener("click", function(){
-  //답 맞았는지 확인
-  alert("submitbtn");
+  if(!submit){
+    //답 맞았는지 확인하고 다이얼로그 출력
+    submit = true;
+    var ans = 0;
+    for(var i = 1; i < 5; i++){
+      var answerImg = document.querySelector("#answer"+i);
+      var input = answerImg.src;
+      console.log(input);
+      if(input.includes('ans'+i)) ans++;
+    }
+    document.querySelector("#dialbtn").style.display = "block";
+    if(ans==4){
+      document.querySelector("#successDial").style.display = "block";
+      correct = true;
+    }
+    else{
+      document.querySelector("#failDial").style.display = "block";
+      correct = false
+    }
+  }
+  
 });
 
 backbtn.addEventListener("click", function(){
-  //퀴즈 풀기 전 화면으로 이동
-  alert("backbtn");
+  if(!submit)
+    //퀴즈 풀기 전 화면으로 이동
+    alert("backbtn");
+});
+
+dialbtn.addEventListener("click", function(){
+  if(correct){
+    //next로 이동
+  }else{
+    //home으로 이동
+  }
 });
