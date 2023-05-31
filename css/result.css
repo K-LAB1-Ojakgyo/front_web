@@ -1,0 +1,57 @@
+/* result page style */
+
+#result_wrapper {
+    text-align: center;
+    position: relative;
+  }
+  #book_choice_logout {
+    float: right;
+    width: 150px;
+    height: 60px;
+    margin: 0;
+  }
+  .nullBadge {
+    width: 20px;
+    height: 20px;
+  }
+  
+  #badge_board {
+    position: absolute;
+    width: 1200px;
+    height: 860px;
+    margin: 0;
+    right: 120px;
+    left: 120px;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    bottom: 0;
+    background-color: #87aa77;
+  }
+  
+  #result_title {
+    width: 12.3cm;
+    height: 5.3cm;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  #collection {
+    width: 13cm;
+    height: 13cm;
+    position: relative;
+    display: inline-block;
+    overflow: scroll;
+    overflow-x: hidden;
+    margin-right: 105px;
+  }
+  
+  #new_badge_zone {
+    display: inline-block;
+    margin-left: 20px;
+  }
+  
+  #result_next_btn {
+    display: block;
+    margin: 15px auto 0 auto;
+  }
+  

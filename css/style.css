@@ -109,3 +109,12 @@ body{
     margin-right: 30px;
     align-items: center;
 }
+
+#btn_move{
+  transition: transform 0.3s ease;
+
+}
+
+#btn_move:hover{
+  transform: scale(1.2);
+}

@@ -1,12 +1,37 @@
 <!DOCTYPE html>
     <head>
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/login.css">
 	    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script type="text/javascript" src="js/util.js"></script>
 	    <script type="text/javascript" src="js/login.js"></script>
     </head>
 
     <body>
-        <h1>login</h1>
+        <div class="page" id="login_wrapper">
+            <img id="title" width="1049px" height="150px" src="./res/Login_img/title.png">
+                <div id="id_field">
+                    <input type="text" name="id" id="input_id" size=15 maxlength=20 placeholder="Enter your ID"></input>
+                    <img id="input_deco"src="./res/Login_img/login_grass.png" alt="" width="70px" height="70px">
+                </div>
+                <div id="submit">
+                    <div class="chick_btn" id="start_login_btn">Login ▶</div>
+                </div>
+                <div id="author">
+                    <img src="./res/Login_img/made_by_Konkuk_University.png" alt="">
+                </div>
+
+                <dialog id="check_id_dialog">
+                    <p id="dialog_id"></p>
+                    <p id="dialog_title">Would you like to log in??</ㅔ>
+                    <p id="dialog_info"></p>
+                    <form id="dialog_btn_form" method="dialog">
+                        <div class="chick_btn" id="back_btn">◀ Back</div>
+                        <div class="chick_btn" id="login_btn">Login ▶</div>
+                        
+                    </form>
+                </dialog>
+        </div>
+        
     </body>
 </html>
