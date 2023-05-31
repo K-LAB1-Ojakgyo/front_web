@@ -67,9 +67,47 @@ function getQuests() {
      */
 }
 
-function getRandomBooks() {
+function getRandomBooks() { /*예담이가 할것*/
     /**
      * 서버 통신 필요
-     * 안읽은 책 중에서 랜덤한 책 리스트 받아오기
+     * 안읽은 책 중에서 랜덤한 책 리스트 받아오기 -> 이건 서버랑 다 연결되고나서 할게 흑흑..
      */
+
+    var images=[
+        "./book_img/book1.jpeg",
+        "./book_img/book2.jpeg",
+        "./book_img/book3.jpeg",
+        "./book_img/book4.jpeg",
+        "./book_img/book5.jpeg",
+        "./book_img/book6.jpeg",
+        "./book_img/book7.jpeg",
+        "./book_img/book8.jpeg",
+    ];
+    var random_array=[];
+    // for(var i=0;i<4;i++){
+    //     var imageSrc = Math.floor(Math.random() * random_array.length);
+    //     random_array.push(imageSrc);
+    //     for(var j=0;j<4;j++){
+    //         if(random_array[j]==imageSrc){
+    //             random_array.splice(i,1);
+    //             i--;
+    //         }
+    //     }
+    // }
+    
+    // for(var i=0;i<4;i++){
+    //     var index = random_array[i];
+    //     random_array[i]=images[index];
+    // }
+
+    while(random_array.length<5){
+        var randomIndex = Math.floor(Math.random() * images.length);
+        var randomValue = images[randomIndex];
+
+        if($.inArray(randomValue, random_array)==-1){
+            random_array.push(randomValue);
+        }
+    }
+
+    return random_array;
 }

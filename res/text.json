@@ -1,5 +1,7 @@
 {
     "login_title" : "Read with me!",
     "login_textbox_description" : "Enter your id",
-    "login" : "login"
+    "login" : "login",
+    "choosing_a_book" : "choose a book!"
+    
 }
