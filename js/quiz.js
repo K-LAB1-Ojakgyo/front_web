@@ -5,7 +5,9 @@ var originalX, originalY;
 var offsetX, offsetY;
 var dragging = false;
 var submit = false;
-var correct = false
+var correct = false;
+
+
 
 // 각각의 드래그 가능한 이미지 요소에 대해 이벤트 핸들러 등록
 quizImgs.forEach(function(quizImg) {
@@ -113,13 +115,15 @@ submitbtn.addEventListener("click", function(){
 backbtn.addEventListener("click", function(){
   if(!submit)
     //퀴즈 풀기 전 화면으로 이동
-    alert("backbtn");
+    window.location.href = "./main.html";
 });
 
 dialbtn.addEventListener("click", function(){
   if(correct){
     //next로 이동
+    window.location.href = "./result.html";
   }else{
     //home으로 이동
+    window.location.href="./main.html";
   }
 });
