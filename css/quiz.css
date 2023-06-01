@@ -1,127 +1,87 @@
-body{
-	width: 1440px;
-	background-color: #6c9658;
-}
-.page{
-    background-color: #a4c396;
-    width: 33.867cm;
-    height: 19.05cm;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0%);
-}
-.quizpage{
-    position: relative;
+#quizpanel{
+    width: 33cm;
     background-color: #5e976a;
-    width: 28.68cm;
-    height: 17.28cm;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    margin: 0 auto;
-    margin-top: 70px;
+    left: 90px;
 }
 #challenge{
-    font-size: 48px;
-    margin: 0;
-    padding: 5px;
-    padding-left: 25px;
-    padding-top: 10px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+#booktitle{
+    font-size: 35px;
+    margin-left: 45px;
     color: #FFFFFF;
 }
-#title{
-    margin: 0;
-    padding: 5px;
-    font-size: 20px;
-    padding-left: 25px;
-    color: #FFFFFF;
+#btnLogout{
+    font-family: 'Baloo 2', 'sans-serif', 'monospace';
+    color: white;
 }
 .answerimg{
-    width: 246.456px;
-    height: 173.88px;
+    width: 295px;
+    height: 200px;
     position: absolute;
+    top: 250px;
 }
 #answer1{
     left: 20px;
-    top: 120px;
 }#answer2{
-    left: 285px;
-    top: 120px;
+    left: 324px;
 }
 #answer3{
-    right: 285px;
-    top: 120px;
+    right: 324px;
 }
 #answer4{
     right: 20px;
-    top: 120px;
 }
 .quizimg{
     position: absolute;
-    width: 136.08px;
-    height: 116.58px;
+    width: 200px;
+    height: 150px;
+    top: 500px;
 }
 #quiz1{
-    top: 325px;
-    left: 250px;
+    left: 212px;
 }
 #quiz2{
-    top: 325px;
-    left: 400px;
+    left: 420px;
 }
 #quiz3{
-    top: 325px;
-    right: 400px;
+    right: 420px;
 }
 #quiz4{
-    top: 325px;
-    right: 250px;
-}
-.buttonimg{
-    width: 8.57cm;
-    height: 3.5cm;
-    position: absolute;
-    bottom: 20px;
-}
-
-.chick_btn {
-    width: 324px;
-    height: 132px;
-    background-image: url('../res/img/chick_btn.png');
-    background-size: contain;
-    text-align: center;
-    line-height: 162px;
-    font-family: 'Baloo 2', 'sans-serif', 'monospace';
-    color: #FF8E00;
-    font-size: 50px;
-    transition: transform 0.3s ease;
-}
-
-.chick_btn:hover {
-    transform: scale(1.1);
+    right: 212px;
 }
 
 .dialog{
     position: absolute;
-    width: 20.33cm;
-    height: 11.89cm;
-    left: 170px;
-    top: 130px;
-    display: none;
+    width: 21cm;
+    height: 12cm;
+    left: 225px;
+    top: 220px;
+    display:none;
 }
 
 #backbtn{
     position: absolute;
-    top: 500px;
+    top: 700px;
     left: 70px;
 }
 #submitbtn{
     right: 70px;
-    top: 500px;
+    top: 700px;
     position: absolute;
 }
-#dialbtn{
+#homebtn, #nextbtn{
     position: absolute;
-    bottom: 100px;
-    left: 580px;
-    display: none;
+    bottom: 220px;
+    left: 670px;
+    display:none;
+}
+.DialogDiv p{
+    font-family: 'Baloo 2', 'sans-serif', 'monospace';
+    color: #046C3C;
+    font-size: 100px;
+    position: absolute;
+    left: 250px;
+    display:none;
 }
