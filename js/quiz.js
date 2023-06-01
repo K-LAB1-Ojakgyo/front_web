@@ -117,6 +117,18 @@ backbtn.addEventListener("click", function(){
     window.location.href = "./main.html";
 });
 
+dialbtn.addEventListener("click", function(){
+  if(correct){
+    //next로 이동
+  }else{
+    //home으로 이동
+  }
+});
+
+$(document).ready(function() {
+  autoLogout();
+});
+
 homebtn.addEventListener("click", function(){
     window.location.href="./main.html";
 });

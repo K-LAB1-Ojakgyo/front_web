@@ -55,3 +55,7 @@ function addClickEffect(element){
     element.classList.add("clicked");
     isClicked=1;
 }
+
+$(document).ready(function() {
+    autoLogout();
+});

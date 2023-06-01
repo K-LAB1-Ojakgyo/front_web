@@ -64,4 +64,6 @@ $(document).ready(function() {
   $("")
    
     showBadges(); // result 함수 호출
+
+    autoLogout();
   });

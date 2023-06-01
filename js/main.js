@@ -7,6 +7,8 @@ $(document).ready(function(){
     moreBtnClicked();
     chooseBookBtnClicked();
     logoutBtnClicked();
+
+    autoLogout();
 });
 
 function showBadges() {
