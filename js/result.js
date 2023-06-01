@@ -33,7 +33,7 @@ function showBadges(bookcnt,imgPath) {
       
         $('#collection').append(img);
     }
-    img=$('<img>').attr('src',newImgPath).css(newBadgeImgProperty);
+    img=$('<img>').attr('src',newImgPath).attr('class',"btnshake").css(newBadgeImgProperty);
     $('#new_badge_zone').append(img);
 }
 

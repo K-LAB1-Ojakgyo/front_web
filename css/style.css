@@ -14,7 +14,7 @@ body{
     background-color: #a4c396;
     width: 1440px;
     height: 960px;
-    position: relative;
+    position: fixed;
     margin: 0 auto;
 }
 
