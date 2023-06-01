@@ -84,6 +84,9 @@ for(var i = 1; i<=4; i++){
 
 var submitbtn = document.getElementById("submitbtn");
 var backbtn = document.getElementById("backbtn");
+var homebtn = document.getElementById("homebtn");
+var nextbtn = document.getElementById("nextbtn");
+var logoutbtn = document.getElementById("btnLogout");
 
 submitbtn.addEventListener("click", function(){
   if(!submit){
@@ -121,12 +124,8 @@ $(document).ready(function() {
   autoLogout();
 });
 
-dialbtn.addEventListener("click", function(){
-  if(correct){
-    //next로 이동
-  }else{
-    //home으로 이동
-  }
+logoutbtn.addEventListener("click", function(){
+  //showLogoutDialog();
 });
 
 homebtn.addEventListener("click", function(){
