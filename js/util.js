@@ -46,27 +46,65 @@ function login() {
      * 서버 결과에 따라서 로그인 다이얼로그 띄워줌
      * 최종 로그인의 경우 이 파일에 있는 사용자 정보 관련한거 정해줘야 함
      */
+    //서버 관련
+    var valid_id;
+    var isChallengeValid;
+    //서버에 아이디가 없다면------------------------------------------------------
+    valid_id=false;
+    //서버에 아이디가 있다면 받게 될 더미데이터----------------------------------------
+    var jsonUser = `{
+        "user_id": "u000001",
+        "current_book": "",
+        "read_book": {
+          "000001": "20230524",
+          "000002": "20230526"
+        },
+        "badge_list": {
+          "b0001": "http://b0001",
+          "b0002": "http://b0002"
+        }
+    }`;
+    console.log(jsonUser);
+    //-----------------------------------------------
+    var userObj = JSON.parse(jsonUser);
+    //서버에서 받아온 유저객체에서 챌린지값 t/f 확인후 연결되는 페이지 분별
+    console.log(userObj);
+    if(userObj.current_book==""){
+        isChallengeValid=false;
+    }else{
+        isChallengeValid=true;
+    }
     
     var id_value=$("#input_id").val();
     var idCheckDialog = $("#check_id_dialog")[0];
+
     if(id_value==""){
         alert("아이디를 입력해주세요");
     }else{
         $("#dialog_id").text('ID : ');
         $("#dialog_id").append(document.createTextNode(id_value));
-        const valid_id = true; //서버에 아이디(id_value) 보내서 아이디 있는지 없는지 확인, 있으면 기존유저->true/없으면 뉴유저->false
+        
+        valid_id = true; //서버에 아이디(id_value) 보내서 아이디 있는지 없는지 확인, 있으면 기존유저->true/없으면 뉴유저->false
         $("#input_id").val('');
         if (valid_id) {     //아이디 있는경우
+            //서버에서 유저객체 받아오기 -> 쿠키 저장 
+            
             $("#dialog_info").text("");
             var infoNode = "Your account exist!";
             $("#dialog_info").append(infoNode);
             idCheckDialog.showModal();
-            $("#login_btn").click(function() {
-                window.location.href = "main.html";
-            });
+            if(isChallengeValid){
+                $("#login_btn").click(function() {
+                    window.location.href = "main.html";
+                });
+            }
+            else{
+                $("#login_btn").click(function() {
+                    window.location.href = "book_choice.html";
+                });
+            }
             $("#back_btn").click(function() {
                 idCheckDialog.close();
-                
             });
         } else {    //아이디 없는경우 new user
             $("#dialog_info").text("");
