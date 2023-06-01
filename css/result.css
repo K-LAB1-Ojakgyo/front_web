@@ -4,12 +4,7 @@
     text-align: center;
     position: relative;
   }
-  #book_choice_logout {
-    float: right;
-    width: 150px;
-    height: 60px;
-    margin: 0;
-  }
+
   .nullBadge {
     width: 20px;
     height: 20px;
@@ -33,11 +28,17 @@
     display: block;
     margin: 0 auto;
   }
-  
+  #newdiv{
+    display: inline-block;
+    position: absolute;
+    top:270px;
+    right:100px;
+    font-size: 40px;
+    color: #e95c73;
+  }
   #collection {
     width: 13cm;
     height: 13cm;
-    position: relative;
     display: inline-block;
     overflow: scroll;
     overflow-x: hidden;
@@ -46,7 +47,6 @@
   
   #new_badge_zone {
     display: inline-block;
-    margin-left: 20px;
   }
   @keyframes shake {
     0% { transform: translateY(0); }
@@ -64,4 +64,14 @@
     display: block;
     margin: 15px auto 0 auto;
   }
+  @keyframes shake {
+    0% { transform: translateY(0); }
+    25% { transform: translateY(-15px); }
+    50% { transform: translateY(15px); }
+    75% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+  }
   
+  #newbadge_move {
+    animation: shake 1s infinite;
+  }

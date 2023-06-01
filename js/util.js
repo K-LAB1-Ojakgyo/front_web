@@ -78,7 +78,9 @@ function login() {
     var valid_id;
     var isChallengeValid;
     //서버에 아이디가 없다면------------------------------------------------------
+
     valid_id=true;
+
     //서버에 아이디가 있다면 받게 될 더미데이터----------------------------------------
     var jsonUser = `{
         "user_id": "u000001",
@@ -105,14 +107,17 @@ function login() {
     
     var id_value=$("#input_id").val();
     var idCheckDialog = $("#check_id_dialog")[0];
+
     if(id_value==""){
         alert("아이디를 입력해주세요");
     }else{
         $("#dialog_id").text('ID : ');
         $("#dialog_id").append(document.createTextNode(id_value));
-       
+
         $("#input_id").val('');
         if (valid_id) {     //아이디 있는경우
+            //서버에서 유저객체 받아오기 -> 쿠키 저장 
+            
             $("#dialog_info").text("");
             var infoNode = "Your account exist!";
             $("#dialog_info").append(infoNode);
@@ -129,7 +134,6 @@ function login() {
             }
             $("#back_btn").click(function() {
                 idCheckDialog.close();
-                
             });
         } else {    //아이디 없는경우 new user
             $("#dialog_info").text("");
