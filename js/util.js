@@ -8,19 +8,47 @@ function getText(key) {
     return text;
 }
 
+var autoLogoutTime = 5000;
+var autoLogout;
+
 function autoLogout() {
     /**
      * 자동 로그아웃
      * 사용자가 마우스를 움직이는 등의 이벤트시 실행됨 (움직이면 처음부터 카운트다운)
      * 특정 시간 동안 카운트 다운 된 후 자동 로그아웃 다이얼로그 띄우기
      */
+    autoLogout = setTimeout(() => {
+        showAutoLogoutDialog();
+    }, autoLogoutTime);
+    $("body").mousemove(function() {
+        clearTimeout(autoLogout);
+        autoLogout = setTimeout(() => {
+            showAutoLogoutDialog();
+        }, autoLogoutTime);
+    });
 }
 
 function showAutoLogoutDialog() {
-    /**
-     * 자동 로그아웃 다이얼로그를 띄움
-     * 특정 시간 동안 카운트 다운하는 동안 버튼 입력이 없다면 로그아웃
-     */
+    var dialog = document.createElement("dialog");
+    dialog.id = "logout_dialog";
+    dialog.className = "common_dialog";
+    dialog.innerHTML = "<p id=\"logout_dialog_text\">10초간 응답이 없는 경우 자동 종료됩니다.</p>" + "<p id=\"logout_dialog_cnt\">10</p>" + "<form id=\"dialog_btn_form\" method=\"dialog\"><div class=\"chick_btn\" id=\"logout_dialog_btn\">Click</div></form>";
+    $(".page").append(dialog);
+    dialog.showModal();
+    var cnt = 10
+    var cntDown = setInterval(() => {
+        $("#logout_dialog_cnt").text(--cnt);
+        if(cnt == 0) {
+            clearInterval(cntDown);
+            logout();
+        }
+    }, 1000)
+    $("#logout_dialog_btn").click(function() {
+        dialog.close();
+        clearInterval(cntDown);
+        dialog.innerHTML = "";
+        $(".page").remove("#logout_dialog");
+    });
 }
 
 function showLogoutDialog() {

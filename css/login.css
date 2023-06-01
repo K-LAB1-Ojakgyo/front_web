@@ -55,8 +55,10 @@
     position: absolute;
     /* width: 20.33cm;
     height: 11.89cm; */
-    left: 360px;
-    top: 200px;
+    left: 50%;
+    top: 0;
+    margin-left: -384px;
+    margin-top: 255px;
     text-align: center;
     overflow: hidden;
     border-radius: 90px;

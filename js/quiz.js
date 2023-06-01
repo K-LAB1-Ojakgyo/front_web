@@ -123,3 +123,7 @@ dialbtn.addEventListener("click", function(){
     //home으로 이동
   }
 });
+
+$(document).ready(function() {
+  autoLogout();
+});
