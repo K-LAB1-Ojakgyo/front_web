@@ -13,7 +13,6 @@
   #badge_board {
     position: absolute;
     width: 1200px;
-    height: 860px;
     margin: 0;
     right: 120px;
     left: 120px;
@@ -49,7 +48,18 @@
   #new_badge_zone {
     display: inline-block;
   }
+  @keyframes shake {
+    0% { transform: translateY(0); }
+    25% { transform: translateY(-15px); }
+    50% { transform: translateY(15px); }
+    75% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+  }
   
+  .btnshake {
+    animation: shake 1.0s infinite;
+  }
+
   #result_next_btn {
     display: block;
     margin: 15px auto 0 auto;

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
     <head>
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/quiz.css">
 	    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -7,13 +8,14 @@
     </head>
 
     <body>
-        <div class = "page">
-            <div id="logout">
-                
+        <div class = "page" id = "quizpage">
+            <div id="btnLogout">
+                <p>logout</p>
+                <img src="./res/img/logoutDoor.png" alt="logout" width="50px" height="50px"> 
             </div>
-            <div class="quizpage">
-                <h1 id="challenge">Challenge!</h1>
-                <h2 id="title">Title</h2>
+            <div class="panel" id="quizpanel">
+                <h1 class="title" id="challenge">Challenge!</h1>
+                <h2 id="booktitle">Title</h2>
                 <div id="answerDiv">
                     <img src="./res/img/1.png" class="answerimg" id="answer1">
                     <img src="./res/img/2.png" class="answerimg" id="answer2">
@@ -27,13 +29,16 @@
                     <img src="./res/img/4.png" class="quizimg" id="quiz4" draggable="true">
                 </div>
                 <div id="btnDiv">
-                    <img class="chick_btn" id="backbtn">
-                    <img class="chick_btn" id="submitbtn">
+                    <div class="chick_btn" id="backbtn">◀ back</div>
+                    <div class="chick_btn" id="submitbtn">submit ▶</div>
                 </div>
                 <div class="DialogDiv">
                     <img src="./res/img/success.png" class="dialog" id="successDial">
                     <img src="./res/img/fail.png" class="dialog" id="failDial">
-                    <img class="chick_btn" id="dialbtn">
+                    <div class="chick_btn" id="homebtn">home ▶</div>
+                    <div class="chick_btn" id="nextbtn">next ▶</div>
+                    <p id="success">Success!</p>
+                    <p id="failed">Failed</p>
                 </div>
             </div>
         </div>

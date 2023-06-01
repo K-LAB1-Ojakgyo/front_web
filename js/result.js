@@ -43,6 +43,7 @@ function showBadges(bookcnt,imgPath) {
        }
        $('#collection').append(img);
     }
+
     img=$('<img>')
     .attr('src',newImgPath)
     .attr('id',"newbadge_move")
@@ -79,4 +80,6 @@ $(document).ready(function() {
     $("#collection").attr("class","scroll_container");
    
     showBadges(); // result 함수 호출
+
+    autoLogout();
   });
