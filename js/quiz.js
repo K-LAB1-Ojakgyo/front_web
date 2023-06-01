@@ -5,7 +5,6 @@ var originalX, originalY;
 var offsetX, offsetY;
 var dragging = false;
 var submit = false;
-var correct = false
 
 // 각각의 드래그 가능한 이미지 요소에 대해 이벤트 핸들러 등록
 quizImgs.forEach(function(quizImg) {
@@ -97,14 +96,16 @@ submitbtn.addEventListener("click", function(){
       console.log(input);
       if(input.includes('ans'+i)) ans++;
     }
-    document.querySelector("#dialbtn").style.display = "block";
+    
     if(ans==4){
       document.querySelector("#successDial").style.display = "block";
-      correct = true;
+      document.querySelector("#nextbtn").style.display = "block";
+      document.querySelector("#success").style.display="block";
     }
     else{
       document.querySelector("#failDial").style.display = "block";
-      correct = false
+      document.querySelector("#homebtn").style.display = "block";
+      document.querySelector("#failed").style.display="block";
     }
   }
   
@@ -113,13 +114,13 @@ submitbtn.addEventListener("click", function(){
 backbtn.addEventListener("click", function(){
   if(!submit)
     //퀴즈 풀기 전 화면으로 이동
-    alert("backbtn");
+    window.location.href = "./main.html";
 });
 
-dialbtn.addEventListener("click", function(){
-  if(correct){
-    //next로 이동
-  }else{
-    //home으로 이동
-  }
+homebtn.addEventListener("click", function(){
+    window.location.href="./main.html";
+});
+
+nextbtn.addEventListener("click", function(){
+  window.location.href="./result.html";
 });
