@@ -73,6 +73,14 @@ function logoutBtnClicked() {
 }
 
 $(document).ready(function() {
+    $('.page').on('click', function() {
+        console.log("클릭 이벤트 발생");
+      });
+    history.pushState(null, null, location.href);
+  $(window).on('popstate', function() {
+    history.go(1);
+  });
+
     // 페이지 로드 완료 시 실행될 코드
     $("#result_next_btn").click(function(){
         nextBtnClicked();

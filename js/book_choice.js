@@ -1,6 +1,12 @@
 var isClicked=0;
 
 $(document).ready(function() {
+    $('.page').trigger('click');    
+  history.pushState(null, null, location.href);
+  $(window).on('popstate', function() {
+    history.go(1);
+  });
+
     // HTML 파일이 로드되면 실행되는 함수
     showRandomBooks();
     autoLogout();

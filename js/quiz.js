@@ -1,4 +1,10 @@
 $(document).ready(function() {
+  $('.page').trigger('click');    
+
+  history.pushState(null, null, location.href);
+  $(window).on('popstate', function(event) {
+    history.go(1);
+  });
   getInfos();
   setDragEvent();
   setImages();
