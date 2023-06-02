@@ -8,7 +8,7 @@ function getText(key) {
     return text;
 }
 
-var autoLogoutTime = 5000;
+var autoLogoutTime = 120000;
 var autoLogout;
 
 function autoLogout() {
@@ -119,7 +119,7 @@ function login_front() {
             //서버에서 유저객체 받아오기 -> 쿠키 저장 
             
             $("#dialog_info").text("");
-            var infoNode = "Your account exist!";
+            var infoNode = "Je account bestaat!"; // Your account exist!
             $("#dialog_info").append(infoNode);
             idCheckDialog.showModal();
             if(isChallengeValid){
