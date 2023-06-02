@@ -3,6 +3,7 @@ var isClicked=0;
 $(document).ready(function() {
     // HTML 파일이 로드되면 실행되는 함수
     showRandomBooks();
+    autoLogout();
   });
 
 
