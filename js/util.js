@@ -119,7 +119,7 @@ function login() {
             //서버에서 유저객체 받아오기 -> 쿠키 저장 
             
             $("#dialog_info").text("");
-            var infoNode = "Your account exist!";
+            var infoNode = "Je account bestaat!"; // Your account exist!
             $("#dialog_info").append(infoNode);
             idCheckDialog.showModal();
             if(isChallengeValid){
