@@ -1,6 +1,6 @@
 
 function btnMoveClicked() {
-    login(); // util.js 에서 작업 요망
+    login_front(); // util.js 에서 작업 요망
     
 }
 
