@@ -67,7 +67,8 @@ function logout() {
     window.location.href = "login.html";
 }
 
-function login_front() {
+// 함수 정의할 때 async 키워드 추가
+async function login_front() {
     /**
      * 로그인
      * 서버 통신 필요
@@ -94,18 +95,36 @@ function login_front() {
           "b0002": "http://b0002"
         }
     }`;
-    console.log(jsonUser);
+    //console.log(jsonUser);
+    
+    //서버에서 아이디 조회: id_value 필요-----------------------------------------------
+    var id_value=$("#input_id").val();
+    var jsonUser = null;
+    if(id_value!=""){
+        jsonUser = await getUser(id_value);
+    }
+    //console.log(jsonUser);
+
     //-----------------------------------------------
-    var userObj = JSON.parse(jsonUser);
+    //var userObj = JSON.parse(jsonUser);
+    var userObj = jsonUser;
+
     //서버에서 받아온 유저객체에서 챌린지값 t/f 확인후 연결되는 페이지 분별
     console.log(userObj);
-    if(userObj.current_book==""){
+    if(userObj==null || userObj.current_book=="-1"){
         isChallengeValid=false;
     }else{
         isChallengeValid=true;
     }
+
+    // valid_id 갱신
+    if(userObj==null){
+        valid_id=false;
+    }else{
+        valid_id=true;
+    }
     
-    var id_value=$("#input_id").val();
+    //var id_value=$("#input_id").val();
     var idCheckDialog = $("#check_id_dialog")[0];
 
     if(id_value==""){
@@ -124,12 +143,18 @@ function login_front() {
             idCheckDialog.showModal();
             if(isChallengeValid){
                 $("#login_btn").click(function() {
-                    window.location.href = "main.html";
+                    // 쿠키 대신 차선책: url parameter
+                    var url = 'main.html?user_id=' + encodeURIComponent(id_value);
+                    window.location.href = url;
+                    //window.location.href = "main.html";
                 });
             }
             else{
                 $("#login_btn").click(function() {
-                    window.location.href = "book_choice.html";
+                    // 쿠키 대신 차선책: url parameter
+                    var url = 'book_choice.html?user_id=' + encodeURIComponent(id_value);
+                    window.location.href = url;
+                    //window.location.href = "book_choice.html";
                 });
             }
             $("#back_btn").click(function() {
@@ -140,8 +165,12 @@ function login_front() {
             var infoNode = "Since the account does not exist," + "<br>" + "a new account will be created.";
             $("#dialog_info").append(infoNode);
             idCheckDialog.showModal();
-            $("#login_btn").click(function() {
-                window.location.href = "book_choice.html";
+            $("#login_btn").click(async function() {
+                // add new id
+                await login(id_value);
+                var url = 'book_choice.html?user_id=' + encodeURIComponent(id_value);
+                window.location.href = url;
+                //window.location.href = "book_choice.html";
             });
             $("#back_btn").click(function() {
                 idCheckDialog.close();
@@ -153,11 +182,17 @@ function login_front() {
  
 }
 
-function getNowChallenge() {
+async function getNowChallenge() {
     /**
      * 서버 통신 필요
      * 현재 진행해야할 챌린지 정보 받아오기
      */
+    userId = 'risa'; // 함수 인자로 전달받거나, cookie로 저장되어 있던 값 사용해야 할 것
+    userObj = await getUser('risa');
+    nowChallengeId = userObj.current_book;
+
+    bookObj = await getBook(nowChallengeId);
+    return bookObj.head_image;
 }
 
 function getBadges() {

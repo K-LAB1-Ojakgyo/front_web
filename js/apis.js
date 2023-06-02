@@ -124,18 +124,68 @@ $(document).ready(function () {
       throw error; // rethrow the error to handle it outside the function
     }
   };
-  
-  const getRandomBook = async (bookNum) => {
-    books = await getAllBook();
-    books_keys = Object.keys(books);
-    books_keys.sort(function () {
-      return Math.round(Math.random()) - 0.5;
-    });
-  
-    book_list = {};
-    for (let i = 0; i < bookNum; i++) {
-      book_list[books_keys[i]] = books[books_keys[i]];
+
+  const getRandomBook = async (bookNum, userID) => {
+    books = await getAllBook()
+    user_status = await getUser(userID)
+
+    user_read_book = user_status["read_book"]
+
+    console.log(user_read_book)
+
+    books_keys = Object.keys(books)
+
+
+    total_book_num = books_keys.length
+    rest_book_key_list = []
+
+    console.log(total_book_num)
+
+    for(let i = 0; i<total_book_num; i++){
+        if(!(books_keys[i] in user_read_book))
+            rest_book_key_list.push(books_keys[i])
     }
+
+    console.log("hi")
+    console.log(rest_book_key_list)
+
+    books_keys.sort(function () {
+        return Math.round(Math.random()) - 0.5
+    })
+
+    console.log(books_keys)
+
+    bookNum = Math.max(bookNum, rest_book_key_list.length)
+
+    book_list = {}
+    for(let i = 0; i<bookNum; i++){
+        book_list[books_keys[i]] = books[rest_book_key_list[i]]
+    }
+    console.log(book_list)
+
+    return book_list
+  }
+
+  const getRealUrl = async (url) => {
+    try {
+        var storage = firebase.storage();
+        var fileRef = storage.ref().child(url);
+        
+        const realUrl = await fileRef.getDownloadURL();
+        return realUrl;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+  }
   
-    return book_list;
-  };
+  const getRealUrls = async (urls) => {
+    result_list = []
+    for(let i = 0; i < urls.length; i++){
+        await getRealUrl(urls[i]).then((real_url) => {
+            result_list.push(real_url)
+        })
+    }
+
+    return result_list
+  }

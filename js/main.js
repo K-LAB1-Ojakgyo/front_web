@@ -1,4 +1,9 @@
 $(document).ready(function(){
+    // test for url parameter
+    var urlParams = new URLSearchParams(window.location.search);
+    userId = urlParams.get('user_id');
+    console.log(userId);
+
     showBadges();
     showQuests();
     showChallenge();
@@ -10,6 +15,9 @@ $(document).ready(function(){
 
     autoLogout();
 });
+
+// url parameter 관련 전역변수: 차선책
+var userId;
 
 function showBadges() {
     /**
@@ -34,12 +42,15 @@ function showQuests() {
     $("#bookBack3").attr("src", quests[2]);
 }
 
-function showChallenge() {
+async function showChallenge() {
     /**
      * util의 getNowchallenge를 활용하여 정보를 받아와서
      * 화면에 띄워줌
      */
-    var nowChallenge = "res/dummy/book1.png";
+    var fakeUrl = await getNowChallenge();
+    console.log(fakeUrl);
+    var nowChallenge = await getRealUrl(fakeUrl); // url parameter 방식 사용할 경우, 해당 함수에서 인자로 user id 보내줘야 함
+    //var nowChallenge = "res/dummy/book1.png";
     $("#challengeBack").attr("src", nowChallenge);
 }
 
