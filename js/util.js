@@ -8,7 +8,7 @@ function getText(key) {
     return text;
 }
 
-var autoLogoutTime = 5000;
+var autoLogoutTime = 120000;
 var autoLogout;
 
 function autoLogout() {
@@ -67,7 +67,7 @@ function logout() {
     window.location.href = "login.html";
 }
 
-function login() {
+function login_front() {
     /**
      * 로그인
      * 서버 통신 필요
