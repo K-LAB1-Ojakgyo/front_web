@@ -1,0 +1,11 @@
+#resultImg{
+    padding:50px 0px;
+}
+
+#result_button{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-right: 50px;
+    margin-bottom: 40px;
+}
