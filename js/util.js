@@ -67,7 +67,7 @@ function logout() {
     window.location.href = "login.html";
 }
 
-function login() {
+function login_front() {
     /**
      * 로그인
      * 서버 통신 필요
