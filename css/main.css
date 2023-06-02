@@ -71,6 +71,14 @@
     left: 490px;
 }
 
+.btnMove{
+    transition: transform 0.3s ease;
+}
+
+.btnMove:hover{
+    transform: scale(1.1);
+}
+
 .btnMain{
     position: absolute;
     bottom: 40px;
