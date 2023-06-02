@@ -181,41 +181,68 @@ function getRandomBooks() { /*예담이가 할것*/
      * 안읽은 책 중에서 랜덤한 책 리스트 받아오기 -> 이건 서버랑 다 연결되고나서 할게 흑흑..
      */
 
-    var images=[
-        "./book_img/book1.jpeg",
-        "./book_img/book2.jpeg",
-        "./book_img/book3.jpeg",
-        "./book_img/book4.jpeg",
-        "./book_img/book5.jpeg",
-        "./book_img/book6.jpeg",
-        "./book_img/book7.jpeg",
-        "./book_img/book8.jpeg",
-    ];
+    var jsonUser = `{
+        "user_id": "u000001",
+        "current_book": "",
+        "read_book": {
+          "000001": "20230524",
+          "000002": "20230526"
+        },
+        "badge_list": {
+          "b0001": "http://b0001",
+          "b0002": "http://b0002"
+        }
+    }`;
+    //-----------------------------------------------
+    var userObj = JSON.parse(jsonUser);
+    var book_num = 2;//images.length - 2;//userObj.read_book.length; //undefined
     var random_array=[];
-    // for(var i=0;i<4;i++){
-    //     var imageSrc = Math.floor(Math.random() * random_array.length);
-    //     random_array.push(imageSrc);
-    //     for(var j=0;j<4;j++){
-    //         if(random_array[j]==imageSrc){
-    //             random_array.splice(i,1);
-    //             i--;
-    //         }
-    //     }
-    // }
+    var images=[
+        "./res/img/book1.jpeg",
+        "./res/img/book2.jpeg",
+        "./res/img/book3.jpeg",
+        "./res/img/book4.jpeg",
+        "./res/img/book5.jpeg",
+        "./res/img/book6.jpeg",
+        "./res/img/book7.jpeg",
+        "./res/img/book8.jpeg",
+    ];
+
+    if(book_num>=4){
+        while(random_array.length<4){
+            var randomIndex = Math.floor(Math.random() * images.length);
+            var randomValue = images[randomIndex];
+            if($.inArray(randomValue, random_array)==-1){
+                random_array.push(randomValue);
+            }
+        }
+    }else if(book_num == 3){
+        while(random_array.length<3){
+            var randomIndex = Math.floor(Math.random() * images.length);
+            var randomValue = images[randomIndex];
     
-    // for(var i=0;i<4;i++){
-    //     var index = random_array[i];
-    //     random_array[i]=images[index];
-    // }
-
-    while(random_array.length<5){
-        var randomIndex = Math.floor(Math.random() * images.length);
-        var randomValue = images[randomIndex];
-
-        if($.inArray(randomValue, random_array)==-1){
-            random_array.push(randomValue);
+            if($.inArray(randomValue, random_array)==-1){
+                random_array.push(randomValue);
+            }
+        }
+    }else if(book_num == 2){
+        while(random_array.length<2){
+            var randomIndex = Math.floor(Math.random() * images.length);
+            var randomValue = images[randomIndex];
+    
+            if($.inArray(randomValue, random_array)==-1){
+                random_array.push(randomValue);
+            }
+        }
+    }else if(book_num == 1){
+        while(random_array.length<1){
+            var randomIndex = Math.floor(Math.random() * images.length);
+            var randomValue = images[randomIndex];
+    
+            if($.inArray(randomValue, random_array)==-1){
+                random_array.push(randomValue);
+            }
         }
     }
-
     return random_array;
 }
