@@ -2,6 +2,7 @@
     margin: 0px;
     padding: 0px;
 }
+
 body{
 	margin: 0 auto;
 	width: 1440px;
@@ -118,42 +119,6 @@ body{
   transform: scale(1.2);
 }
 
-.common_dialog {
-    width: 768px;
-    height: 450px;
-    position: absolute;
-    left: 50%;
-    top: 0;
-    margin-left: -384px;
-    margin-top: 255px;
-    text-align: center;
-    overflow: hidden;
-    border-radius: 90px;
-    border-color: #036b3f;
-    border-width: 7px;
-  }
-
-#logout_dialog_text {
-    font-family: 'Baloo 2', 'sans-serif', 'monospace';
-    font-size: 40px;
-    color: #036b3f;
-    margin-left: 45px;
-    margin-right: 45px;
-    margin-top: 45px;
-    margin-bottom: 15px;
-}
-
-#logout_dialog_cnt {
-    font-family: 'Baloo 2', 'sans-serif', 'monospace';
-    font-size: 40px;
-    color: #036b3f;
-}
-
-#logout_dialog_btn {
-    margin-left: 222px;
-    margin-top: 20px;
-}
-
 #btnLogout{
     position: absolute;
     top: 10px;
@@ -167,6 +132,8 @@ body{
     top: -10px;
     right: 60px;
     font-size: 50px;
+    font-family: 'Baloo 2', sans-serif, monospace; 
+    color: white;
 }
 #btnLogout img{
     position: absolute;
