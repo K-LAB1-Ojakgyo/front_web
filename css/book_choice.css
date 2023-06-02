@@ -1,19 +1,9 @@
-#book_choice_body{
-    margin: 0 auto;
-	width: 1440px;
-	background-color: #6c9658;
-}
-.page{
-    background-color: #a4c396;
-    width: 1440px;
-    height: 960px;
-}
-
 #book_choice_title{
     color : #036b3f;
     font-size: 60px;
     font-weight:bold;
     margin-left : 80px;
+    font-family: 'Baloo 2', 'sans-serif', 'monospace';
     padding-top:80px;
     height : 100px;
 }
@@ -35,8 +25,9 @@
 }
 
 .book_choice_list img{
-    width : calc(33.333%-10px);
+    /*width : calc(33.333%-10px);*/
     margin:25px auto;
+    transition: transform 0.3s ease;
 }
 
 [type=radio]{
@@ -48,55 +39,38 @@
 
 .book_choice_list img:active{
     cursor: pointer;
-    border: 10px solid #ffcc4c;
+}
+
+.book_choice_list img:hover{
+    cursor: pointer;
+    /*border: 10px solid #ffcc4c;*/
+    transform: scale(1.1);
 }
 
 .clicked{
     border: 10px solid #ffcc4c;
-    /*width:"230";*/
+    height : 290;
+    box-sizing: border-box;
 }
 
 .book_choice_list img:nth-of-type(4n),
 .book_choice_list img:last-child{
     margin-right:30px;
 }
-@media screen and (max-width : 640px){
-    .book_choice_list img{
-        width:calc(50% - 15px);
-    }
-}
-
-@media screen and (max-width : 480px){
-    .book_choice_list img:nth-of-type(2n){
-        margin-right:0;
-    }
-    .book_choice_list:nth-of-type(3n){
-        margin-right:0;
-    }
-    .book_choice_list:nth-of-type(4n){
-        margin-right:0;
-    }
-}
-
-#book_choice_button{
-    margin:50px auto;
-    position:relative;
-}
 
 #book_choice_refresh{
+    position: absolute;
+    left: 0;
     margin-left : 200px;
-    height:132px;
-    width:324px;
 }
 
 #book_choice_refresh:hover{
-    transform: scale(1.1)
+    transform: scale(1.1);
 }
 
 #book_choice_select{
-    height:132px;
-    width:324px;
-    float:right;
+    position: absolute;
+    right: 0;
     margin-right : 200px;
 }
 
@@ -104,24 +78,26 @@
     transform: scale(1.1);
 }
 
-
-#book_choice_logout{
-    float:right;
-    width:150px;
-    height:60px;
-    margin:0;
-}
-
-#book_choice_login_or_back{
+#book_choice_logout_or_back{
+    position: relative;
     height:132px;
     width:324px;
+    margin : 0 auto;
+    font-family: 'Baloo 2', sans-serif, monospace;
+    color: #FF8E00;
 }
 
 #book_choice_dialog{
     width: 768px;
     height: 450px;
+
+    position: absolute;
+    /* width: 20.33cm;
+    height: 11.89cm; */
+    left: 360px;
+    top: 200px;
     text-align: center;
-   overflow: hidden;
+    overflow: hidden;
     border-radius: 90px;
     border-color: #036b3f;
     border-width: 7px;
@@ -131,27 +107,34 @@
     font-size: 50px;
     color:#807474;
     margin-bottom: 30px;
+    font-family: 'Baloo 2', sans-serif, monospace;
 }
 
 #dialog_title{
     font-size: 60px;
     margin:10px auto;
+    font-family: 'Baloo 2', sans-serif, monospace;
 }
 
+#book_choice_dialog {
+    width: 768px;
+    height: 450px;
 
-.chick_btn {
-    width: 324px;
-    height: 132px;
-    background-image: url('../res/img/chick_btn.png');
-    background-size: contain;
+    position: absolute;
+    /* width: 20.33cm;
+    height: 11.89cm; */
+    left: 50%;
+    top: 0;
+    margin-left: -384px;
+    margin-top: 255px;
     text-align: center;
-    line-height: 162px;
-    font-family: 'Baloo 2', 'sans-serif', 'monospace';
-    color: #FF8E00;
-    font-size: 50px;
-    transition: transform 0.3s ease;
-}
-
-.chick_btn:hover {
-    transform: scale(1.1);
-}
+    overflow: hidden;
+    border-radius: 90px;
+    border-color: #036b3f;
+    border-width: 7px;
+   
+  }
+  #dialog_title {
+    font-size: 60px;
+    margin: 10px auto;
+  }

@@ -1,13 +1,37 @@
 var isClicked=0;
 
+$(document).ready(function() {
+    // HTML 파일이 로드되면 실행되는 함수
+    showRandomBooks();
+  });
+
+
 function showRandomBooks() {
-    var image_array=new Array(4);
+    var image_array=[];
     image_array=getRandomBooks(); //random하게 가져오기
-    for(var i=0;i<4;i++){
-        var temp_string = "#book"+(i+1); //string을 통해 id가져오기
-        var img_id=$(temp_string); //image에 이 id가 들어있음
-        $(img_id).attr("src",image_array[i]);
-        $(img_id).removeClass('clicked');
+    console.log(image_array.length);
+    if(image_array.length>=4){
+        for(var i=0;i<image_array.length;i++){
+            var temp_string = "#book"+(i+1); //string을 통해 id가져오기
+            var img_id=$(temp_string); //image에 이 id가 들어있음
+            $(img_id).attr("src",image_array[i]);
+            $(img_id).removeClass('clicked');
+        }
+    }else{
+        var book_num = image_array.length;
+        for(var i=0;i<book_num;i++){ //0부터 book_num까지(0-1,0-2,0-3..)
+            var temp_string = "#book"+(i+1); //string을 통해 id가져오기
+            var img_id=$(temp_string); //image에 이 id가 들어있음
+            $(img_id).attr("src",image_array[i]);
+            $(img_id).removeClass('clicked');
+        }
+        for(var i=book_num; i<5;i++){
+            var temp_string = "#book"+(i+1); //string을 통해 id가져오기
+            var img_id=$(temp_string); //image에 이 id가 들어있음
+            $(img_id).empty();
+            $(img_id).remove();
+            console.log(book_num);
+        }
     }
     isClicked=0;
 }
@@ -26,21 +50,27 @@ function selectBtnClicked() {
     if(isClicked==1){
         var idCheckDialog = $("#book_choice_dialog")[0];
         var infoNode = "choicing the book is completed!";
+        var logout="logout";
         $("#dialog_title").empty();
         $("#dialog_title").append(infoNode);
         idCheckDialog.showModal();
-        $('#book_choice_login_or_back').attr("src", "./book_img/login_button.png");
-        $('#book_choice_login_or_back').click(function(){
+        $('#book_choice_logout_or_back').attr("src", ".res/img/chick_btn.png");
+        $("#book_choice_logout_or_back").empty();
+        $("#book_choice_logout_or_back").append(logout);
+        $('#book_choice_logout_or_back').click(function(){
            window.location.href="login.html";
         });
     }else{
         var idCheckDialog = $("#book_choice_dialog")[0];
         var infoNode = "Please choose the book you want to read.";
+        var back="back";
         $("#dialog_title").empty();
         $("#dialog_title").append(infoNode);
         idCheckDialog.showModal();
-        $('#book_choice_login_or_back').attr("src", "./book_img/back_button.png");
-        $('#book_choice_login_or_back').click(function(){
+        $('#book_choice_logout_or_back').attr("src", ".res/img/chick_btn.png");
+        $("#book_choice_logout_or_back").empty();
+        $("#book_choice_logout_or_back").append(back);
+        $('#book_choice_logout_or_back').click(function(){
             idCheckDialog.close();
         });
     }
@@ -55,7 +85,3 @@ function addClickEffect(element){
     element.classList.add("clicked");
     isClicked=1;
 }
-
-$(document).ready(function() {
-    autoLogout();
-});

@@ -6,42 +6,44 @@
 	    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script type="text/javascript" src="js/util.js"></script>
 	    <script type="text/javascript" src="js/book_choice.js"></script>
+
     </head>
 
-    <body id="book_choice_body">
+    <body>
         <div class="page">
-            <img id="book_choice_logout" src="../res/img/logout.png">
+            <div id="btnLogout">
+                <p>logout</p>
+                <img src="res/img/logoutDoor.png" alt="logout" width="50px" height="50px"> 
+            </div>
             <div id="book_choice_title">choose a book!</div>
             <div id="book_choice_board">
                 <div class="book_choice_list">
                     <input type="radio" name="book">
-                    <img class="book" id="book1" src="../res/img/book1.jpeg" width="240" onclick="addClickEffect(this)">
+                    <img class="book" id="book1" width="240" height="310" onclick="addClickEffect(this)">
                     <p id="print"></p>
                     </input>
                     <input type="radio" name="book">
-                    <img class="book" id="book2" src="../res/img/book2.jpeg" width="240" onclick="addClickEffect(this)">
+                    <img class="book" id="book2" width="240" height="310" onclick="addClickEffect(this)">
                     </input>
                     <input type="radio" name="book">
-                    <img class="book" id="book3" src="../res/img/book3.jpeg" width="240" onclick="addClickEffect(this)">
+                    <img class="book" id="book3" width="240" height="310" onclick="addClickEffect(this)">
                     </input>   
                     <input type="radio" name="book">
-                    <img class="book" id="book4" src="../res/img/book4.jpeg" width="240" onclick="addClickEffect(this)">
+                    <img class="book" id="book4" width="240" height="310" onclick="addClickEffect(this)">
                     </input>  
                 </div>
             </div>
             <div id="book_choice_wood">
-                <img id="book_choice_wood_img", src="../res/img/wood.png">
+                <img id="book_choice_wood_img", src="./res/img/wood.png">
             </div>
             <div id="book_choice_button">
-                <div class="chick_btn"></div>
-                <div class="chick_btn"></div>
-                <!-- <img id="book_choice_refresh", src="./book_img/refresh_button.png" onclick="refreshBtnClicked()">
-                <img id="book_choice_select", src="./book_img/select_button.png" onclick="selectBtnClicked()"> -->
+                <div class="chick_btn" id="book_choice_refresh" onclick="refreshBtnClicked()">refresh</div>
+                <div class="chick_btn" id="book_choice_select" onclick="selectBtnClicked()">select</div>
             </div>
             <dialog id="book_choice_dialog">
                 <p id="dialog_title"></p>
                 <p id="book_choice_seconds"></p>
-                <div class="chick_btn"></div>
+                <div class="chick_btn" id="book_choice_logout_or_back">logout</div>
             </dialog>
             </div>
         </div>
