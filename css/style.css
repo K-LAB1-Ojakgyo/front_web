@@ -2,6 +2,8 @@
     margin: 0px;
     padding: 0px;
 }
+* { font-family: 'Baloo 2', sans-serif, monospace; color: white;}
+
 body{
 	margin: 0 auto;
 	width: 1440px;
