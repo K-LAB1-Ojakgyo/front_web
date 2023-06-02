@@ -50,7 +50,7 @@ function selectBtnClicked() {
 
     if(isClicked==1){
         var idCheckDialog = $("#book_choice_dialog")[0];
-        var infoNode = "choicing the book is completed!";
+        var infoNode = "Het kiezen van het boek is voltooid!"; // The book selection is complete!
         var logout="logout";
         $("#dialog_title").empty();
         $("#dialog_title").append(infoNode);
@@ -63,7 +63,7 @@ function selectBtnClicked() {
         });
     }else{
         var idCheckDialog = $("#book_choice_dialog")[0];
-        var infoNode = "Please choose the book you want to read.";
+        var infoNode = "Kies het boek dat je wilt lezen."; // Please choose the book you want to read.
         var back="back";
         $("#dialog_title").empty();
         $("#dialog_title").append(infoNode);
