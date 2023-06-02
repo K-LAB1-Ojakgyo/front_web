@@ -59,7 +59,8 @@ function selectBtnClicked() {
         $("#book_choice_logout_or_back").empty();
         $("#book_choice_logout_or_back").append(logout);
         $('#book_choice_logout_or_back').click(function(){
-           window.location.href="login.html";
+            showLogoutDialog();
+           //window.location.href="login.html";
         });
     }else{
         var idCheckDialog = $("#book_choice_dialog")[0];
