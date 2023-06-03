@@ -1,5 +1,11 @@
 /* result page style */
-
+*{
+  color: white;
+  font-family: 'Baloo 2', 'sans-serif', 'monospace';
+}
+#result_title{
+  font-size: 80px;
+}
 #result_wrapper {
     text-align: center;
     position: relative;
