@@ -87,26 +87,14 @@ async function login_front() {
     //서버 관련
     var valid_id;
     var isChallengeValid;
+    var data;
     //서버에 아이디가 없다면------------------------------------------------------
 
     valid_id=true;
-
-    //console.log(jsonUser);
-    //-----------------------------------------------
-    //var userObj = JSON.parse(jsonUser);
-    //서버에서 받아온 유저객체에서 챌린지값 t/f 확인후 연결되는 페이지 분별
-    //console.log(userObj);
         
     var id_value=$("#input_id").val();
-    // var idCheckDialog = $("#check_id_dialog")[0];
-    // var jsonUser = await getUser(id_value);
-    // console.log(jsonUser);
-    //console.log(jsonUser.badge_list["b0001"]); -> badge에 대한 정보 읽어오기
     
-   //console.log(jsonUser.current_book);
-    
-
-    if(jsonUser==null){
+    if(data==null){
         isChallengeValid=false; //book_choice로 가기
     }else{
         isChallengeValid=true; //main으로 가기
@@ -118,10 +106,10 @@ async function login_front() {
         alert("아이디를 입력해주세요");
     }else{
         var idCheckDialog = $("#check_id_dialog")[0];
-        var jsonUser = await getUser(id_value);
-        console.log(jsonUser);
+        data = await getUser(id_value);
+        console.log(data);
         localStorage.setItem("user",id_value);
-        localStorage.setItem("userInfo",JSON.stringify(jsonUser));
+        localStorage.setItem("userInfo",JSON.stringify(data));
         CurrentUser=localStorage.getItem(id_value);
        
         $("#dialog_id").text('ID : ');
@@ -156,7 +144,9 @@ async function login_front() {
             $("#dialog_info").append(infoNode);
             idCheckDialog.showModal();
             $("#login_btn").click(function() {
-                addUser(id_value);
+
+                addUser(id_value, data);
+                console.log(id_value);
                 window.location.href = "book_choice.html";
 
             });
@@ -215,30 +205,10 @@ async function getRandomBooks() { /*예담이가 할것*/
      * 안읽은 책 중에서 랜덤한 책 리스트 받아오기 -> 이건 서버랑 다 연결되고나서 할게 흑흑..
      */
 
-    // var jsonUser = `{
-    //     "user_id": "u000001",
-    //     "current_book": "",
-    //     "read_book": {
-    //       "000001": "20230524",
-    //       "000002": "20230526"
-    //     },
-    //     "badge_list": {
-    //       "b0001": "http://b0001",
-    //       "b0002": "http://b0002"
-    //     }
-    // }`;
-    //-----------------------------------------------
-    //var userObj = JSON.parse(jsonUser);
-
 
     var userId="risa";//"heejin";
     var book_num = 4;
     var user_read_book = await getRandomBook(book_num, userId);
-    //console.log(jsonUser.badge_list["b0001"]); -> badge에 대한 정보 읽어오기
-    //console.log(jsonUser);
-    //var user_read_book=jsonUser.read_book;
-    //user_read_book = Object.keys(read_book);
-    //console.log(user_read_book.length);
 
     var length = $.map(user_read_book, function(value, key) {
         return key;
