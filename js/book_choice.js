@@ -7,15 +7,19 @@ $(document).ready(function() {
   });
 
 
-function showRandomBooks() {
+async function showRandomBooks() {
     var image_array=[];
-    image_array=getRandomBooks(); //random하게 가져오기
-    console.log(image_array.length);
+    image_array = await getRandomBooks(); //random하게 가져오기
+    console.log(image_array[1]);
     if(image_array.length>=4){
         for(var i=0;i<image_array.length;i++){
             var temp_string = "#book"+(i+1); //string을 통해 id가져오기
             var img_id=$(temp_string); //image에 이 id가 들어있음
+            console.log(image_array[i]);
+            image_array[i]=await getRealUrls(image_array[i]);
+            console.log(image_array[i]);
             $(img_id).attr("src",image_array[i]);
+            console.log(image_array[i]);
             $(img_id).removeClass('clicked');
         }
     }else{
@@ -31,7 +35,6 @@ function showRandomBooks() {
             var img_id=$(temp_string); //image에 이 id가 들어있음
             $(img_id).empty();
             $(img_id).remove();
-            console.log(book_num);
         }
     }
     isClicked=0;
