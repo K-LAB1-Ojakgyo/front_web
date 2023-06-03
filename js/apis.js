@@ -125,43 +125,36 @@ const getAllBook = async () => {
 };
 
 const getRandomBook = async (bookNum, userID) => {
-  books = await getAllBook()
+  /* get all books*/
+  books = await getAllBook() 
+
+  /*heejin's status(information)*/
   user_status = await getUser(userID)
 
+  /*get user read book list */
   user_read_book = user_status["read_book"]
 
-  //console.log(user_read_book)
-
+  /*books_keys = ["000001", "000002",...,"000008"] */
   books_keys = Object.keys(books)
 
-
+  /*read_book's length*/
   total_book_num = books_keys.length
-  console.log(total_book_num);
   rest_book_key_list = []
-
-  //console.log(total_book_num)
 
   for(let i = 0; i<total_book_num; i++){
       if(!(books_keys[i] in user_read_book))
           rest_book_key_list.push(books_keys[i])
   }
 
-  //console.log("hi")
-  //console.log(rest_book_key_list)
-
   books_keys.sort(function () {
       return Math.round(Math.random()) - 0.5
   })
 
-  //console.log(books_keys)
-
   bookNum = Math.min(bookNum, rest_book_key_list.length)
-  console.log(bookNum)
   book_list = {}
   for(let i = 0; i<bookNum; i++){
       book_list[books_keys[i]] = books[rest_book_key_list[i]]
   }
-  console.log(book_list)
 
   return book_list
 }
