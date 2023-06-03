@@ -22,17 +22,16 @@ $(document).ready(function() {
 
 async function showRandomBooks() {
     var image_array=[];
-
     var bookNum=8;
     console.log(user);
     console.log(userInfo);
+    var duplication=0;
     /*새계정일때! */
     // if(userInfo.read_book[-1]=="-1"){
     //     console.log(bookNum);
     //     bookNum=8;
     // }
     image_array = await getRandomBook(bookNum, user); //random하게 가져오기
-
     var length = $.map(image_array, function(value, key) {
         return key;
     }).length;
@@ -46,24 +45,31 @@ async function showRandomBooks() {
                 var randomKey=Math.floor(Math.random() * length);
 
                 var randomValue = await getRealUrl(books_image[randomKey].head_image);
-
-                if($.inArray(randomValue, image_array)==-1){
+                for(var j=0;j<i;j++){
+                    if(image_array[j]===randomValue){ //만약 동일하면
+                        console.log(duplication);
+                        duplication=1;
+                        break;
+                    }
+                }
+                if(duplication===0){
                     image_array[i]=randomValue;
                     $(img_id).attr("src", image_array[i]);
                     $(img_id).removeClass('clicked');
+                    
                 }else{
-                    console.log("here");
                     i--;
+                    duplication=0;
                 }
                 //image_array[i]=await getRealUrl(books_image[i].head_image);
             }
     }else{
         var book_num = length;
         var books_image = Object.values(image_array); // 객체의 키를 배열로 추출
-
         for(var i=0;i<book_num;i++){ //0부터 book_num까지(0-1,0-2,0-3..)
             var temp_string = "#book"+(i+1); //string을 통해 id가져오기
             var img_id=$(temp_string); //image에 이 id가 들어있음
+            image_array[i]=await getRealUrl(books_image[i].head_image);
             $(img_id).attr("src",image_array[i]);
             $(img_id).removeClass('clicked');
         }
@@ -76,6 +82,7 @@ async function showRandomBooks() {
     }
     isClicked=0;
 }
+
 
 function refreshBtnClicked() {
     showRandomBooks();
