@@ -196,15 +196,24 @@ async function getBadges(users) {
     return url_list;
 }
 
-async function getQuests(user) {
+async function getQuests(users) {
     /**
      * 서버 통신 필요
      * 모든 해결한 퀘스트 정보 받아오기 (최근 순서로 sort되어 있어야 함)
      */
     var user = await getUser("risa");
     console.log(user);
-    var read_book_list = Object.values(user.read_book);
-    var url_list = await getRealUrls(read_book_list);
+    var read_book_list = Object.keys(user.read_book);
+
+    var books = await getAllBook();
+    var books_list = [];
+
+    for(i = 0; i < read_book_list.length; i++) {
+        books_list.push(books[read_book_list[i]].head_image);
+    }
+    console.log(books_list);
+
+    var url_list = await getRealUrls(books_list);
     console.log(url_list);
     return url_list; 
 }

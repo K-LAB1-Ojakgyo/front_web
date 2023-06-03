@@ -1,3 +1,8 @@
+var badges = ["res/dummy/badge1.png","res/dummy/badge2.png", "res/dummy/badge3.png"]; // 더미데이터
+var quests = ["res/dummy/book1.png","res/dummy/book2.png", "res/dummy/book3.png"]; // 더미데이터
+var cur_book;
+var user;
+var userInfo;
 
   $(document).ready(function() {
     user=localStorage.getItem("user");  
@@ -7,10 +12,7 @@
       history.go(1);
     });
    
-    showBadges();
-    showQuests();
-    showChallenge();
-    showBookTitle();
+    init();
     quizBtnClicked();
     moreBtnClicked();
     chooseBookBtnClicked();
@@ -18,6 +20,15 @@
 
     autoLogout();
 });
+
+async function init() {
+  badges = await getBadges();
+  quests = await getQuests();
+  showBadges();
+  showQuests();
+  showChallenge();
+  showBookTitle();
+}
 
 
 // window.onpopstate = function(event) {
@@ -31,7 +42,7 @@ function showBadges() {
      * 화면에 띄워줌
      */
     
-    var badges = ["res/dummy/badge1.png","res/dummy/badge2.png", "res/dummy/badge3.png"]; // 더미데이터
+    //var badges = ["res/dummy/badge1.png","res/dummy/badge2.png", "res/dummy/badge3.png"]; // 더미데이터
     $("#badgeBack1").attr("src", badges[0]);
     $("#badgeBack2").attr("src", badges[1]);
     $("#badgeBack3").attr("src", badges[2]);
@@ -43,7 +54,7 @@ function showQuests() {
      * util의 getRecentQuests를 활용하여 정보를 받아와서
      * 화면에 띄워줌
      */
-    var quests = ["res/dummy/book1.png","res/dummy/book2.png", "res/dummy/book3.png"]; // 더미데이터
+    // var quests = ["res/dummy/book1.png","res/dummy/book2.png", "res/dummy/book3.png"]; // 더미데이터
     $("#bookBack1").attr("src", quests[0]);
     $("#bookBack2").attr("src", quests[1]);
     $("#bookBack3").attr("src", quests[2]);
