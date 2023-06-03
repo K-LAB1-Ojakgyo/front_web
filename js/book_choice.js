@@ -60,10 +60,10 @@ async function showRandomBooks() {
     }else{
         var book_num = length;
         var books_image = Object.values(image_array); // 객체의 키를 배열로 추출
+
         for(var i=0;i<book_num;i++){ //0부터 book_num까지(0-1,0-2,0-3..)
             var temp_string = "#book"+(i+1); //string을 통해 id가져오기
             var img_id=$(temp_string); //image에 이 id가 들어있음
-            image_array[i]=await getRealUrl(books_image[i].head_image);
             $(img_id).attr("src",image_array[i]);
             $(img_id).removeClass('clicked');
         }

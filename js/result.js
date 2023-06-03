@@ -1,3 +1,6 @@
+var user;
+var userInfo;
+
 var imgPath=["./res/badge/badge_bird.svg","./res/badge/badge_elephant.svg","./res/badge/badge_owl.svg","./res/badge/badge_rabbit.svg"];//getBadges()
 var newImgPath=["./res/badge/badge_rabbit.svg"];    //getRecentBadges()
 
@@ -73,8 +76,8 @@ function logoutBtnClicked() {
 }
 
 $(document).ready(function() {
-    user=localStorage.getItem("user");  
-    userInfo=localStorage.getItem("userInfo");
+    user=JSON.parse(localStorage.getItem("user"));  
+    userInfo=JSON.parse(localStorage.getItem("user"));
 
     history.pushState(null, null, location.href);
   $(window).on('popstate', function() {

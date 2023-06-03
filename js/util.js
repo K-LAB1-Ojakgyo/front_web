@@ -1,7 +1,8 @@
 /*
     서버와 통신하는 메소드, 다이얼로그, 자동 로그아웃 기능, 사용자 정보, 텍스트 관리
 */
-
+var user;
+var userInfo;
 
 function getText(key) {
     var text = "";
@@ -21,6 +22,7 @@ function autoLogout() {
     autoLogout = setTimeout(() => {
         showAutoLogoutDialog();
     }, autoLogoutTime);
+    
     $("body").mousemove(function() {
         clearTimeout(autoLogout);
         autoLogout = setTimeout(() => {
@@ -140,16 +142,23 @@ async function login_front() {
 
         if(jsonUser==null){
             valid_id=false;
-        } else valid_id=true;
+        }else{
+            valid_id=true;
+        }
+
         if(jsonUser==null || jsonUser.current_book=="-1"){
             isChallengeValid=false; //book_choice로 가기
         }else{
             isChallengeValid=true; //main으로 가기
         }
 
+        
         localStorage.setItem("user",id_value);
-        localStorage.setItem("userInfo", JSON.stringify(jsonUser));
-   
+        localStorage.setItem("userInfo",JSON.stringify(jsonUser));
+        user=localStorage.getItem("user");
+        userInfo=JSON.parse(localStorage.getItem("userInfo"));
+        console.log("risa badeg :"+ JSON.stringify(userInfo.badge_list));
+
         $("#dialog_id").text('ID : ');
         $("#dialog_id").append(document.createTextNode(id_value));
 
@@ -201,8 +210,9 @@ async function getNowChallenge() {
      * 서버 통신 필요
      * 현재 진행해야할 챌린지 정보 받아오기
      */
-    userId = 'risa'; // 함수 인자로 전달받거나, cookie로 저장되어 있던 값 사용해야 할 것
-    userObj = await getUser('risa');
+    // userId = 'risa'; // 함수 인자로 전달받거나, cookie로 저장되어 있던 값 사용해야 할 것
+    
+    userObj = await getUser(user);
     nowChallengeId = userObj.current_book;
 
     bookObj = await getBook(nowChallengeId);
