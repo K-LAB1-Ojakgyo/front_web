@@ -150,9 +150,9 @@ const getRandomBook = async (bookNum, userID) => {
   }
 
   /*sort!는왜..하지? */
-  books_keys.sort(function () {
-      return Math.round(Math.random()) - 0.5
-  })
+  // books_keys.sort(function () {
+  //     return Math.round(Math.random()) - 0.5
+  // })
 
   /*둘 중 작은거 택하기 */
   bookNum = Math.min(bookNum, rest_book_key_list.length)
