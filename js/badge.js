@@ -69,7 +69,13 @@ $(document).ready(function() {
         backBtnClicked();
     });
 
+    autoLogout();
+    init();
+});
+
+async function init() {
+    badges = await getBadges();
+    //quests = await getQuests();
     showBadges();
     showQuests();
-    autoLogout();
-});
+}

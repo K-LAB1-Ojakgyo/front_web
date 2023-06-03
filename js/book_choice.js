@@ -15,6 +15,7 @@ $(document).ready(function() {
 
 async function showRandomBooks() {
     var image_array=[];
+
     image_array = await getRandomBook(7, "risa"); //random하게 가져오기
     var length = $.map(image_array, function(value, key) {
         return key;
@@ -31,6 +32,7 @@ async function showRandomBooks() {
                 $(img_id).attr("src", image_array[i]);
                 $(img_id).removeClass('clicked');
             }
+
     }else{
         var book_num = length;
         var books_image = Object.values(image_array); // 객체의 키를 배열로 추출

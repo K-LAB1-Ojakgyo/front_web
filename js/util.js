@@ -163,8 +163,6 @@ async function login_front() {
  
 }
 
-
-
 async function getNowChallenge() {
     /**
      * 서버 통신 필요
@@ -178,19 +176,30 @@ async function getNowChallenge() {
     return bookObj.head_image;
 }
 
-function getBadges() {
-    
+async function getBadges(users) {
     /**
      * 서버 통신 필요
      * 모든 모은 배지 정보 받아오기 (최근 순서로 sort되어 있어야 함)
      */
+    var user = await getUser("risa");
+    console.log(user);
+    var badge_list = Object.values(user.badge_list);
+    var url_list = await getRealUrls(badge_list);
+    console.log(url_list);
+    return url_list;
 }
 
-function getQuests() {
+async function getQuests(user) {
     /**
      * 서버 통신 필요
      * 모든 해결한 퀘스트 정보 받아오기 (최근 순서로 sort되어 있어야 함)
      */
+    var user = await getUser("risa");
+    console.log(user);
+    var read_book_list = Object.values(user.read_book);
+    var url_list = await getRealUrls(read_book_list);
+    console.log(url_list);
+    return url_list; 
 }
 
 async function getRandomBooks() { /*예담이가 할것*/
