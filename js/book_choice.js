@@ -88,7 +88,7 @@ function refreshBtnClicked() {
     showRandomBooks();
 }
 
-function selectBtnClicked() {
+async function selectBtnClicked() {
     // 완료 다이얼로그가 뜨면서 5초 후 login 화면으로 이동
 
     if(isClicked==1){
@@ -98,14 +98,40 @@ function selectBtnClicked() {
         $("#dialog_title").empty();
         $("#dialog_title").append(infoNode);
         idCheckDialog.showModal();
+
+        /*서버 연결*/
+         var selected_book_src =$(".clicked").attr("src");
+        console.log(selected_book_src);
+        var image_array = []
+        var bookNum=8;
+        image_array = await getRandomBook(bookNum, user); //random하게 가져오기
+        console.log(image_array); //00001....
+        var books_image = Object.values(image_array); // 객체의 키를 배열로 추출
+        console.log(books_image); //0,1,2,3...
+        console.log(books_image[2].current_book);
+        var index="00000"+2;
+        console.log(image_array[index]);
+
+        var cnt=0;
+        for(var i=0;i<8;i++){
+            var randomValue = await getRealUrl(books_image[i].head_image);
+            if(randomValue==selected_book_src){
+                console.log(books_image[i].current_book);
+                user.current_book = books_image[i].current_book;
+                updateUser(user, user.current_book);
+                break;
+            }
+        }
         $('#book_choice_logout_or_back').attr("src", ".res/img/chick_btn.png");
         $("#book_choice_logout_or_back").empty();
         $("#book_choice_logout_or_back").append(logout1);
         $('#book_choice_logout_or_back').click(function(){
             console.log("로그아웃버튼누름");
             idCheckDialog.close();
+
+
             //showLogoutDialog();
-            //window.location.href="login.html";
+           
             logout();
         });
     }else{
