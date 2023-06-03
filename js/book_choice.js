@@ -1,6 +1,8 @@
 var isClicked=0;
 var user;   //user가 로그인한 아이디
 var userInfo;   //user 정보 
+
+
 $(document).ready(function() {
  
     user=localStorage.getItem("user");  
@@ -20,26 +22,40 @@ $(document).ready(function() {
 
 async function showRandomBooks() {
     var image_array=[];
-
-    image_array = await getRandomBook(8, "heejin"); //random하게 가져오기
+    var bookNum=8;
+    console.log(user);
+    console.log(userInfo);
+    /*새계정일때! */
+    // if(userInfo.read_book[-1]=="-1"){
+    //     console.log(bookNum);
+    //     bookNum=8;
+    // }
+    image_array = await getRandomBook(bookNum, user); //random하게 가져오기
     var length = $.map(image_array, function(value, key) {
         return key;
     }).length;
     console.log(length);
     if(length>3){
-        // for(var i=0;i<length;i++){
             var books_image = Object.values(image_array); // 객체의 키를 배열로 추출
             console.log(books_image);
-            for(var i=0;i<length;i++){
+            for(var i=0;i<4;i++){
                 var temp_string = "#book"+(i+1); //string을 통해 id가져오기
                 var img_id=$(temp_string); //image에 이 id가 들어있음
-                image_array[i]=await getRealUrl(books_image[i].head_image);
-                $(img_id).attr("src", image_array[i]);
-                $(img_id).removeClass('clicked');
-            }
+                var randomKey=Math.floor(Math.random() * length);
 
+                var randomValue = await getRealUrl(books_image[randomKey].head_image);
+
+                if($.inArray(randomValue, image_array)==-1){
+                    image_array[i]=randomValue;
+                    $(img_id).attr("src", image_array[i]);
+                    $(img_id).removeClass('clicked');
+                }else{
+                    console.log("here");
+                    i--;
+                }
+                //image_array[i]=await getRealUrl(books_image[i].head_image);
+            }
     }else{
-        console.log("hh~");
         var book_num = length;
         var books_image = Object.values(image_array); // 객체의 키를 배열로 추출
         for(var i=0;i<book_num;i++){ //0부터 book_num까지(0-1,0-2,0-3..)
