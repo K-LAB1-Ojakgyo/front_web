@@ -22,6 +22,7 @@ $(document).ready(function() {
 
 async function showRandomBooks() {
     var image_array=[];
+
     var bookNum=8;
     console.log(user);
     console.log(userInfo);
@@ -31,6 +32,7 @@ async function showRandomBooks() {
     //     bookNum=8;
     // }
     image_array = await getRandomBook(bookNum, user); //random하게 가져오기
+
     var length = $.map(image_array, function(value, key) {
         return key;
     }).length;
@@ -93,6 +95,7 @@ function selectBtnClicked() {
         $("#book_choice_logout_or_back").empty();
         $("#book_choice_logout_or_back").append(logout);
         $('#book_choice_logout_or_back').click(function(){
+            console.log("로그아웃버튼누름");
             showLogoutDialog();
            //window.location.href="login.html";
         });
