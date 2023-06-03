@@ -89,9 +89,9 @@ async function login_front() {
     //console.log(userObj);
         
     var id_value=$("#input_id").val();
-    var idCheckDialog = $("#check_id_dialog")[0];
-    var jsonUser = await getUser(id_value);
-    console.log(jsonUser);
+    // var idCheckDialog = $("#check_id_dialog")[0];
+    // var jsonUser = await getUser(id_value);
+    // console.log(jsonUser);
     //console.log(jsonUser.badge_list["b0001"]); -> badge에 대한 정보 읽어오기
     
    //console.log(jsonUser.current_book);
@@ -108,6 +108,9 @@ async function login_front() {
     if(id_value==""){
         alert("아이디를 입력해주세요");
     }else{
+        var idCheckDialog = $("#check_id_dialog")[0];
+        var jsonUser = await getUser(id_value);
+        console.log(jsonUser);
         $("#dialog_id").text('ID : ');
         $("#dialog_id").append(document.createTextNode(id_value));
 

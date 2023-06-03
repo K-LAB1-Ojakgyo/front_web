@@ -6,7 +6,7 @@ $(document).ready(function() {
   $(window).on('popstate', function() {
     history.go(1);
   });
-
+    
     // HTML 파일이 로드되면 실행되는 함수
     showRandomBooks();
     autoLogout();
@@ -15,17 +15,18 @@ $(document).ready(function() {
 
 async function showRandomBooks() {
     var image_array=[];
-    image_array = await getRandomBooks(); //random하게 가져오기
-    console.log(image_array[1]);
+    image_array = await getRandomBook(2, "risa"); //random하게 가져오기
+    console.log("img : ");
+    console.log(image_array);
     if(image_array.length>=4){
         for(var i=0;i<image_array.length;i++){
             var temp_string = "#book"+(i+1); //string을 통해 id가져오기
             var img_id=$(temp_string); //image에 이 id가 들어있음
-            console.log(image_array[i]);
+            //console.log(image_array[i]);
             image_array[i]=await getRealUrls(image_array[i]);
-            console.log(image_array[i]);
+            //console.log(image_array[i]);
             $(img_id).attr("src",image_array[i]);
-            console.log(image_array[i]);
+            //console.log(image_array[i]);
             $(img_id).removeClass('clicked');
         }
     }else{

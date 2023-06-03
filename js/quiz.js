@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(async function() {
   $('.page').trigger('click');    
 
   history.pushState(null, null, location.href);
