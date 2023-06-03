@@ -102,9 +102,6 @@ async function login_front() {
     //서버 관련
     var valid_id;
     var isChallengeValid;
-    //서버에 아이디가 없다면------------------------------------------------------
-
-    valid_id=true;
 
     //console.log(jsonUser);
     //-----------------------------------------------
@@ -119,21 +116,17 @@ async function login_front() {
     //console.log(jsonUser.badge_list["b0001"]); -> badge에 대한 정보 읽어오기
     
    //console.log(jsonUser.current_book);
-    
-
-    //if(jsonUser==null){
-    //    isChallengeValid=false; //book_choice로 가기
-    //}else{
-    //    isChallengeValid=true; //main으로 가기
-    //}
 
     /*예담이가 추가한 코드*/
     
     if(id_value==""){
         alert("아이디를 입력해주세요");
     }else{
+        
+       //서버에 아이디 있는지 없는지 확인
         var idCheckDialog = $("#check_id_dialog")[0];
         var jsonUser = await getUser(id_value);
+
         console.log(jsonUser);
         
         if(jsonUser==null){
@@ -147,15 +140,14 @@ async function login_front() {
 
         localStorage.setItem("user",id_value);
         localStorage.setItem("userInfo",JSON.stringify(jsonUser));
-        CurrentUser=localStorage.getItem(id_value);
-       
+   
         $("#dialog_id").text('ID : ');
         $("#dialog_id").append(document.createTextNode(id_value));
 
         $("#input_id").val('');
+
         if (valid_id) {     //아이디 있는경우
             //서버에서 유저객체 받아오기 -> 쿠키 저장 
-        
             $("#dialog_info").text("");
             var infoNode = "Je account bestaat!"; // Your account exist!
             $("#dialog_info").append(infoNode);
