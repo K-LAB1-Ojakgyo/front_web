@@ -1,5 +1,5 @@
 var isClicked=0;
-var user;   //user가 로그인한 아이디
+var user="risa";   //user가 로그인한 아이디
 var userInfo;   //user 정보 
 
 
