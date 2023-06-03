@@ -1,6 +1,8 @@
 <!DOCTYPE html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/ending.css">
         <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&display=swap" rel="stylesheet">
@@ -14,13 +16,13 @@
 
     <body>
         <div class="page">
-            <div id="btnLogout">
+            <div id="btnLogout" onclick="showLogoutDialog()">
                 <p>logout</p>
                 <img src="res/img/logoutDoor.png" alt="logout" width="50px" height="50px"> 
             </div>
             <img id="resultImg" src="res/img/resultImg.png" width="1440">
             <div id="result_button">
-                <div class="chick_btn">finish</div>
+                <div class="chick_btn" onclick="showLogoutDialog()">finish</div>
             </div>
         </div>
     </body>

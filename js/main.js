@@ -1,4 +1,10 @@
-$(document).ready(function(){
+  $(document).ready(function() {
+
+    // history.pushState(null, null, location.href);
+    // $(window).on('popstate', function() {
+    //   history.go(1);
+    // });
+
     showBadges();
     showQuests();
     showChallenge();
@@ -10,6 +16,21 @@ $(document).ready(function(){
 
     autoLogout();
 });
+
+window.onpageshow = function(event) {
+    alert("show");
+    history.pushState(null, null, location.href);
+    if (event.persisted || (window.performance && window.performance.navigation.type == 2)) {
+        alert("show2");
+        history.go(1);
+        //location.href = "main.html";
+    }
+}
+
+// window.onpopstate = function(event) {
+//     alert("show");
+//     history.go(1);
+// }
 
 function showBadges() {
     /**

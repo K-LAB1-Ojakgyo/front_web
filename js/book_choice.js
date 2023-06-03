@@ -1,21 +1,31 @@
 var isClicked=0;
 
 $(document).ready(function() {
+    $('.page').trigger('click');    
+  history.pushState(null, null, location.href);
+  $(window).on('popstate', function() {
+    history.go(1);
+  });
+
     // HTML 파일이 로드되면 실행되는 함수
     showRandomBooks();
     autoLogout();
   });
 
 
-function showRandomBooks() {
+async function showRandomBooks() {
     var image_array=[];
-    image_array=getRandomBooks(); //random하게 가져오기
-    console.log(image_array.length);
+    image_array = await getRandomBooks(); //random하게 가져오기
+    console.log(image_array[1]);
     if(image_array.length>=4){
         for(var i=0;i<image_array.length;i++){
             var temp_string = "#book"+(i+1); //string을 통해 id가져오기
             var img_id=$(temp_string); //image에 이 id가 들어있음
+            console.log(image_array[i]);
+            image_array[i]=await getRealUrls(image_array[i]);
+            console.log(image_array[i]);
             $(img_id).attr("src",image_array[i]);
+            console.log(image_array[i]);
             $(img_id).removeClass('clicked');
         }
     }else{
@@ -31,7 +41,6 @@ function showRandomBooks() {
             var img_id=$(temp_string); //image에 이 id가 들어있음
             $(img_id).empty();
             $(img_id).remove();
-            console.log(book_num);
         }
     }
     isClicked=0;
@@ -50,7 +59,7 @@ function selectBtnClicked() {
 
     if(isClicked==1){
         var idCheckDialog = $("#book_choice_dialog")[0];
-        var infoNode = "choicing the book is completed!";
+        var infoNode = "Het kiezen van het boek is voltooid!"; // The book selection is complete!
         var logout="logout";
         $("#dialog_title").empty();
         $("#dialog_title").append(infoNode);
@@ -59,11 +68,12 @@ function selectBtnClicked() {
         $("#book_choice_logout_or_back").empty();
         $("#book_choice_logout_or_back").append(logout);
         $('#book_choice_logout_or_back').click(function(){
-           window.location.href="login.html";
+            showLogoutDialog();
+           //window.location.href="login.html";
         });
     }else{
         var idCheckDialog = $("#book_choice_dialog")[0];
-        var infoNode = "Please choose the book you want to read.";
+        var infoNode = "Kies het boek dat je wilt lezen."; // Please choose the book you want to read.
         var back="back";
         $("#dialog_title").empty();
         $("#dialog_title").append(infoNode);

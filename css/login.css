@@ -1,4 +1,4 @@
-
+*{ font-family: 'Baloo 2', 'sans-serif', 'monospace';}
   
   #login_wrapper {
     text-align: center;
@@ -70,17 +70,18 @@
   #dialog_id {
     font-size: 50px;
     color: #807474;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+    /* margin-top:20px; */
   }
   
   #dialog_title {
     font-size: 60px;
-    margin: 10px auto;
+    margin: 0;
   }
   
   #dialog_info {
     font-size: 30px;
-    margin: 0 auto;
+    margin: 0;
   }
   
   #dialog_btn_form {
@@ -92,10 +93,12 @@
     position: absolute;
     left: 0;
     margin-top: 25px;
+    margin-left: 20px;
   }
   
   #login_btn {
     position: absolute;
     right: 0;
     margin-top: 25px;
+    margin-right: 20px;
   }

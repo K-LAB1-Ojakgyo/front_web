@@ -1,5 +1,13 @@
-$(document).ready(async function() {
+$(document).ready(function() {
+  $('.page').trigger('click');    
+
+  history.pushState(null, null, location.href);
+  $(window).on('popstate', function(event) {
+    history.go(1);
+  });
+
   await getInfos();
+
   setImages();
   setDragEvent();
   setButtons();
@@ -19,6 +27,8 @@ async function getInfos(){
   book = await getBook(data.current_book);
   $("#booktitle").text("< " + book.title + " >");
   quizImgs = await getRealUrls(book.quiz[1]);
+
+  console.log(quizImgs);
 }
 function setImages(){
   shuffledNumbers = shuffleNumbers();
