@@ -58,10 +58,27 @@ function showLogoutDialog() {
      * 로그아웃 다이얼로그 logout()을 활용
      */
     $("#btnLogout").click(function() {
-        alert("로그아웃클릭!");
-        console.log('로그아웃 클릭됨');
-        logout();
-    });  
+        var dialog = document.createElement("dialog");
+        dialog.id = "logout_btn_dialog";
+        dialog.className = "common_dialog";
+        dialog.innerHTML = "<p id=\"logout_btn_dialog_text\">wil je uitloggen?</p>" + "<div id=\"logout_back_btn\" class=\"chick_btn\">◀ Rug</div>" + "<div id=\"logout_btn\" class=\"chick_btn\">Logout ▶</div>";
+        // <div class="chick_btn" id="logout_back_btn">◀ Rug</div>   <!-- back -->
+        // <div class="chick_btn" id="logout_btn">Logout ▶</div>
+        $(".page").append(dialog);
+        dialog.showModal();
+
+        $("#logout_back_btn").click(function() {    // 로그아웃 이전버튼
+            dialog.close();
+            dialog.innerHTML = "";
+            $(".page").remove("#logout_dialog");
+        });
+        $("#logout_btn").click(function() {  // 로그아웃 버튼
+            dialog.close();
+            dialog.innerHTML = "";
+            $(".page").remove("#logout_dialog");
+            logout();
+        });
+    });   
 }
 
 function logout() {
@@ -70,8 +87,6 @@ function logout() {
      * 가지고 있는 사용자 정보들을 모두 초기화
      * 메인화면으로 옮기기
      */
-
-
     localStorage.removeItem("user");
     localStorage.removeItem("userInfo");
     window.location.href = "login.html";
