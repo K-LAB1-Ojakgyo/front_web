@@ -239,8 +239,17 @@ async function getQuests(user) {
      */
     //var user = await getUser("risa");
     console.log(user);
-    var read_book_list = Object.values(user.read_book);
-    var url_list = await getRealUrls(read_book_list);
+    var read_book_list = Object.keys(user.read_book);
+
+    var books = await getAllBook();
+    var books_list = [];
+
+    for(i = 0; i < read_book_list.length; i++) {
+        books_list.push(books[read_book_list[i]].head_image);
+    }
+    console.log(books_list);
+
+    var url_list = await getRealUrls(books_list);
     console.log(url_list);
     return url_list; 
 }

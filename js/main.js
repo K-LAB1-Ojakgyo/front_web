@@ -24,8 +24,8 @@ var userInfo;
 });
 
 async function init() {
-  badges = await getBadges();
-  quests = await getQuests();
+  badges = await getBadges(userInfo);
+  quests = await getQuests(userInfo);
   console.log(userInfo);
   cur_book = await getBook(userInfo.current_book);
   nowChallenge = await getRealUrl(cur_book.head_image);

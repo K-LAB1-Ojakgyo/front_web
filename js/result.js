@@ -76,8 +76,8 @@ function logoutBtnClicked() {
 }
 
 $(document).ready(function() {
-    user=JSON.parse(localStorage.getItem("user"));  
-    userInfo=JSON.parse(localStorage.getItem("user"));
+    user=localStorage.getItem("user");  
+    userInfo=JSON.parse(localStorage.getItem("userInfo"));
 
     history.pushState(null, null, location.href);
   $(window).on('popstate', function() {

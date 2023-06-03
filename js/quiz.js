@@ -2,8 +2,8 @@ var user;
 var userInfo;
 $(document).ready(async function() {
    
-  user=JSON.parse(localStorage.getItem("user"));  
-  userInfo=JSON.parse(localStorage.getItem("user"));
+  user=localStorage.getItem("user");  
+  userInfo=JSON.parse(localStorage.getItem("userInfo"));
   history.pushState(null, null, location.href);
   $(window).on('popstate', function(event) {
     history.go(1);
