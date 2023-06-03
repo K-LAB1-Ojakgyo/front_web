@@ -139,23 +139,49 @@ const getRandomBook = async (bookNum, userID) => {
 
   /*read_book's length*/
   total_book_num = books_keys.length
+
+  /*남은 book list */
   rest_book_key_list = []
 
+  /*유저가 읽은 북에 없는 건 rest_book_key_list에 넣는다 */
   for(let i = 0; i<total_book_num; i++){
       if(!(books_keys[i] in user_read_book))
           rest_book_key_list.push(books_keys[i])
   }
 
+  /*sort!는왜..하지? */
   books_keys.sort(function () {
       return Math.round(Math.random()) - 0.5
   })
 
+  /*둘 중 작은거 택하기 */
   bookNum = Math.min(bookNum, rest_book_key_list.length)
-  book_list = {}
-  for(let i = 0; i<bookNum; i++){
-      book_list[books_keys[i]] = books[rest_book_key_list[i]]
-  }
 
+  book_list = {}
+
+  /*임시 코드*/
+//   if(length>=4){
+//     for(var i=0;i<4;i++){
+//         var randomIndex=Object.keys(user_read_book);
+//         var randomKey=randomIndex[Math.floor(Math.random() * randomIndex.length)];
+//         var randomValue = user_read_book[randomKey].head_image;
+//         console.log(randomValue);
+//         if($.inArray(randomValue, random_array)==-1){
+//             random_array.push(randomValue);
+//         }
+//     }
+// }
+  /*임시코드 끝 */
+
+  /*북 갯수만큼 book_list에 넣는다 */
+  for(let i = 0; i<bookNum; i++){
+    //var randomKey=Math.floor(Math.random() * rest_book_key_list.length);
+  //   if($.inArray(randomValue, random_array)==-1){
+  //     random_array.push(randomValue);
+  // }
+    book_list[books_keys[i]] = books[rest_book_key_list[i]]
+  }
+  console.log(book_list)
   return book_list
 }
 

@@ -87,18 +87,30 @@ async function login_front() {
     //서버 관련
     var valid_id;
     var isChallengeValid;
-    var data;
     //서버에 아이디가 없다면------------------------------------------------------
 
     valid_id=true;
+
+    //console.log(jsonUser);
+    //-----------------------------------------------
+    //var userObj = JSON.parse(jsonUser);
+    //서버에서 받아온 유저객체에서 챌린지값 t/f 확인후 연결되는 페이지 분별
+    //console.log(userObj);
         
     var id_value=$("#input_id").val();
+    // var idCheckDialog = $("#check_id_dialog")[0];
+    // var jsonUser = await getUser(id_value);
+    // console.log(jsonUser);
+    //console.log(jsonUser.badge_list["b0001"]); -> badge에 대한 정보 읽어오기
     
-    if(data==null){
-        isChallengeValid=false; //book_choice로 가기
-    }else{
-        isChallengeValid=true; //main으로 가기
-    }
+   //console.log(jsonUser.current_book);
+    
+
+    //if(jsonUser==null){
+    //    isChallengeValid=false; //book_choice로 가기
+    //}else{
+    //    isChallengeValid=true; //main으로 가기
+    //}
 
     /*예담이가 추가한 코드*/
     
@@ -106,10 +118,20 @@ async function login_front() {
         alert("아이디를 입력해주세요");
     }else{
         var idCheckDialog = $("#check_id_dialog")[0];
-        data = await getUser(id_value);
-        console.log(data);
+        var jsonUser = await getUser(id_value);
+        console.log(jsonUser);
+        
+        if(jsonUser==null){
+            valid_id=false;
+        }
+        if(jsonUser==null || jsonUser.current_book=="-1"){
+            isChallengeValid=false; //book_choice로 가기
+        }else{
+            isChallengeValid=true; //main으로 가기
+        }
+
         localStorage.setItem("user",id_value);
-        localStorage.setItem("userInfo",JSON.stringify(data));
+        localStorage.setItem("userInfo",JSON.stringify(jsonUser));
         CurrentUser=localStorage.getItem(id_value);
        
         $("#dialog_id").text('ID : ');
@@ -143,10 +165,8 @@ async function login_front() {
 
             $("#dialog_info").append(infoNode);
             idCheckDialog.showModal();
-            $("#login_btn").click(function() {
-
-                addUser(id_value, data);
-                console.log(id_value);
+            $("#login_btn").click(async function() {
+                await addUser(id_value, null);
                 window.location.href = "book_choice.html";
 
             });

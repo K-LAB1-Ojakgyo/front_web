@@ -29,6 +29,7 @@ async function showRandomBooks() {
     if(length>3){
         // for(var i=0;i<length;i++){
             var books_image = Object.values(image_array); // 객체의 키를 배열로 추출
+            console.log(books_image);
             for(var i=0;i<length;i++){
                 var temp_string = "#book"+(i+1); //string을 통해 id가져오기
                 var img_id=$(temp_string); //image에 이 id가 들어있음
