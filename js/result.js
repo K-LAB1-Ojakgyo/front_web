@@ -1,3 +1,5 @@
+var user;
+var userInfo;
 function showBadges(bookcnt,imgPath) {
     /**서버에서 받아올 정보들 임시로 할당해둠 */
     var bookcnt=13;
@@ -73,8 +75,8 @@ function logoutBtnClicked() {
 }
 
 $(document).ready(function() {
-    user=localStorage.getItem("user");  
-    userInfo=localStorage.getItem("userInfo");
+    user=JSON.parse(localStorage.getItem("user"));  
+    userInfo=JSON.parse(localStorage.getItem("user"));
 
     history.pushState(null, null, location.href);
   $(window).on('popstate', function() {

@@ -7,7 +7,7 @@ var userInfo;
 
   $(document).ready(function() {
     user=localStorage.getItem("user");  
-    userInfo=localStorage.getItem("userInfo");
+    userInfo=JSON.parse(localStorage.getItem("userInfo"));
     history.pushState(null, null, location.href);
     $(window).on('popstate', function() {
       history.go(1);
