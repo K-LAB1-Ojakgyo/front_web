@@ -136,6 +136,7 @@ const getRandomBook = async (bookNum, userID) => {
 
 
   total_book_num = books_keys.length
+  console.log(total_book_num);
   rest_book_key_list = []
 
   //console.log(total_book_num)
@@ -154,13 +155,13 @@ const getRandomBook = async (bookNum, userID) => {
 
   //console.log(books_keys)
 
-  bookNum = Math.max(bookNum, rest_book_key_list.length)
-
+  bookNum = Math.min(bookNum, rest_book_key_list.length)
+  console.log(bookNum)
   book_list = {}
   for(let i = 0; i<bookNum; i++){
       book_list[books_keys[i]] = books[rest_book_key_list[i]]
   }
-  //console.log(book_list)
+  console.log(book_list)
 
   return book_list
 }
