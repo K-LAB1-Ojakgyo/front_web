@@ -87,17 +87,19 @@ function selectBtnClicked() {
     if(isClicked==1){
         var idCheckDialog = $("#book_choice_dialog")[0];
         var infoNode = "Het kiezen van het boek is voltooid!"; // The book selection is complete!
-        var logout="logout";
+        var logout1="logout";
         $("#dialog_title").empty();
         $("#dialog_title").append(infoNode);
         idCheckDialog.showModal();
         $('#book_choice_logout_or_back').attr("src", ".res/img/chick_btn.png");
         $("#book_choice_logout_or_back").empty();
-        $("#book_choice_logout_or_back").append(logout);
+        $("#book_choice_logout_or_back").append(logout1);
         $('#book_choice_logout_or_back').click(function(){
             console.log("로그아웃버튼누름");
-            showLogoutDialog();
-           //window.location.href="login.html";
+            idCheckDialog.close();
+            //showLogoutDialog();
+            //window.location.href="login.html";
+            logout();
         });
     }else{
         var idCheckDialog = $("#book_choice_dialog")[0];
