@@ -167,7 +167,7 @@ async function successBookInfo(){
 
   data.badge_list = Object.assign({}, data.badge_list, book.badge); // 새로운 뱃지 추가
   data.read_book[data.current_book] = currentDate; // 새로운 책 추가 (날짜 포함)
-  data.current_book = null; // 현재 선택 책 null로 초기화
+  data.current_book = "-1"; // 현재 선택 책 null로 초기화
 
   await updateUser(current_user_id, data);
 }

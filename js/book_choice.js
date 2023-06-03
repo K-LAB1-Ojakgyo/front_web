@@ -15,7 +15,7 @@ $(document).ready(function() {
 
 async function showRandomBooks() {
     var image_array=[];
-    image_array = await getRandomBook(2, "risa"); //random하게 가져오기
+    image_array = await getRandomBooks(); //random하게 가져오기
     console.log("img : ");
     console.log(image_array);
     if(image_array.length>=4){
