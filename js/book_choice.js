@@ -81,6 +81,7 @@ function selectBtnClicked() {
         $("#book_choice_logout_or_back").empty();
         $("#book_choice_logout_or_back").append(logout);
         $('#book_choice_logout_or_back').click(function(){
+            console.log("로그아웃버튼누름");
             showLogoutDialog();
            //window.location.href="login.html";
         });
