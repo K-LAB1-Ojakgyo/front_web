@@ -9,7 +9,6 @@ $(document).ready(function () {
       appId: "1:575312651295:web:11a43bd9e4d0e4f65c212a",
       measurementId: "G-XS7JCQSRQ9",
     };
-  
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
 });
@@ -139,3 +138,25 @@ $(document).ready(function () {
   
     return book_list;
   };
+
+  const getRealUrl = async (url) => {
+    try {
+        var storage = firebase.storage()
+        var fileRef = storage.ref().child(url);
+        const realUrl = await fileRef.getDownloadURL();
+        return realUrl;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+  }
+
+  const getRealUrls = async (urls) => {
+      result_list = []
+      for(let i = 0; i < urls.length; i++){
+          await getRealUrl(urls[i]).then((real_url) => {
+              result_list.push(real_url)
+          })
+      }
+      return result_list
+  }
