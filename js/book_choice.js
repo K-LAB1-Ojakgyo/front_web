@@ -15,43 +15,29 @@ $(document).ready(function() {
 
 async function showRandomBooks() {
     var image_array=[];
-    console.log("img : ");
-    console.log(image_array);
-    image_array = await getRandomBook(4, "risa"); //random하게 가져오기
+    image_array = await getRandomBook(7, "risa"); //random하게 가져오기
     var length = $.map(image_array, function(value, key) {
         return key;
     }).length;
-    console.log(image_array);
-    console.log(length);
-
-
-
-    // 추출한 키를 jQuery를 사용하여 처리
-    // $.each(keys, function(index, key) {
-    //     console.log(key); // 키 출력
-    //     console.log(image_array[key]); // 해당 키에 대한 값 출력
-    // });
-
-
     if(length>3){
         // for(var i=0;i<length;i++){
-            var temp_string = "#book"+(i+1); //string을 통해 id가져오기
-            var img_id=$(temp_string); //image에 이 id가 들어있음
             var books_image = Object.values(image_array); // 객체의 키를 배열로 추출
-            console.log(books_image[1]);
-
+            console.log(books_image);
             for(var i=0;i<length;i++){
+                var temp_string = "#book"+(i+1); //string을 통해 id가져오기
+                var img_id=$(temp_string); //image에 이 id가 들어있음
                 image_array[i]=await getRealUrl(books_image[i].head_image);
+                console.log(image_array[i]);
                 $(img_id).attr("src", image_array[i]);
                 $(img_id).removeClass('clicked');
             }
-            
     }else{
-        console.log("hihi2");
         var book_num = length;
+        var books_image = Object.values(image_array); // 객체의 키를 배열로 추출
         for(var i=0;i<book_num;i++){ //0부터 book_num까지(0-1,0-2,0-3..)
             var temp_string = "#book"+(i+1); //string을 통해 id가져오기
             var img_id=$(temp_string); //image에 이 id가 들어있음
+            image_array[i]=await getRealUrl(books_image[i].head_image);
             $(img_id).attr("src",image_array[i]);
             $(img_id).removeClass('clicked');
         }
