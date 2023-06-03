@@ -1,17 +1,16 @@
 $(document).ready(function () {
-  const firebaseConfig = {
-    apiKey: "AIzaSyAkV8lUovkLmrAaK9Kj-vKHN7jpx0rjA8U",
-    authDomain: "k-lab-rwm.firebaseapp.com",
-    databaseURL: "https://k-lab-rwm-default-rtdb.firebaseio.com",
-    projectId: "k-lab-rwm",
-    storageBucket: "k-lab-rwm.appspot.com",
-    messagingSenderId: "575312651295",
-    appId: "1:575312651295:web:11a43bd9e4d0e4f65c212a",
-    measurementId: "G-XS7JCQSRQ9",
-  };
-
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+    const firebaseConfig = {
+      apiKey: "AIzaSyAkV8lUovkLmrAaK9Kj-vKHN7jpx0rjA8U",
+      authDomain: "k-lab-rwm.firebaseapp.com",
+      databaseURL: "https://k-lab-rwm-default-rtdb.firebaseio.com",
+      projectId: "k-lab-rwm",
+      storageBucket: "k-lab-rwm.appspot.com",
+      messagingSenderId: "575312651295",
+      appId: "1:575312651295:web:11a43bd9e4d0e4f65c212a",
+      measurementId: "G-XS7JCQSRQ9",
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
 });
 
 const getUser = async (userID) => {
@@ -176,16 +175,58 @@ const getRealUrl = async (url) => {
   } catch (error) {
       console.error(error);
       throw error;
-  }
-}
+    }
+  };
+  
+  const getAllBook = async () => {
+    const dbRef = firebase.database().ref("books");
+    try {
+      const snapshot = await dbRef.get();
+      if (snapshot.exists()) {
+        return snapshot.val();
+      } else {
+        console.log("No data available");
+        return null; // or any default value you prefer
+      }
+    } catch (error) {
+      console.error(error);
+      throw error; // rethrow the error to handle it outside the function
+    }
+  };
+  
+  const getRandomBook = async (bookNum) => {
+    books = await getAllBook();
+    books_keys = Object.keys(books);
+    books_keys.sort(function () {
+      return Math.round(Math.random()) - 0.5;
+    });
+  
+    book_list = {};
+    for (let i = 0; i < bookNum; i++) {
+      book_list[books_keys[i]] = books[books_keys[i]];
+    }
+  
+    return book_list;
+  };
 
-const getRealUrls = async (urls) => {
-  result_list = []
-  for(let i = 0; i < urls.length; i++){
-      await getRealUrl(urls[i]).then((real_url) => {
-          result_list.push(real_url)
-      })
+  const getRealUrl = async (url) => {
+    try {
+        var storage = firebase.storage()
+        var fileRef = storage.ref().child(url);
+        const realUrl = await fileRef.getDownloadURL();
+        return realUrl;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
   }
 
-  return result_list
-}
+  const getRealUrls = async (urls) => {
+      result_list = []
+      for(let i = 0; i < urls.length; i++){
+          await getRealUrl(urls[i]).then((real_url) => {
+              result_list.push(real_url)
+          })
+      }
+      return result_list
+  }

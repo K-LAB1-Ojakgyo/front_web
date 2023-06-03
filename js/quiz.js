@@ -27,6 +27,7 @@ async function getInfos(){
   book = await getBook(data.current_book);
   $("#booktitle").text("< " + book.title + " >");
   quizImgs = await getRealUrls(book.quiz[1]);
+
   console.log(quizImgs);
 }
 function setImages(){
