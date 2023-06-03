@@ -56,6 +56,12 @@ function showLogoutDialog() {
     /**
      * 로그아웃 다이얼로그 logout()을 활용
      */
+    $("#btnLogout").click(function() {
+        alert("로그아웃클릭!");
+        console.log('로그아웃 클릭됨');
+    });  
+
+
     logout();
 }
 
@@ -266,3 +272,7 @@ async function getRandomBooks() { /*예담이가 할것*/
     }
     return random_array;
 }
+
+$(document).ready(function() {
+    showLogoutDialog();
+});
