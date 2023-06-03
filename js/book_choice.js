@@ -43,7 +43,6 @@ async function showRandomBooks() {
                 var temp_string = "#book"+(i+1); //string을 통해 id가져오기
                 var img_id=$(temp_string); //image에 이 id가 들어있음
                 var randomKey=Math.floor(Math.random() * length);
-
                 var randomValue = await getRealUrl(books_image[randomKey].head_image);
                 for(var j=0;j<i;j++){
                     if(image_array[j]===randomValue){ //만약 동일하면
@@ -90,7 +89,7 @@ function refreshBtnClicked() {
 
 async function selectBtnClicked() {
     // 완료 다이얼로그가 뜨면서 5초 후 login 화면으로 이동
-
+    var data = await getUser(user);
     if(isClicked==1){
         var idCheckDialog = $("#book_choice_dialog")[0];
         var infoNode = "Het kiezen van het boek is voltooid!"; // The book selection is complete!
@@ -106,30 +105,25 @@ async function selectBtnClicked() {
         var bookNum=8;
         image_array = await getRandomBook(bookNum, user); //random하게 가져오기
         var books_image = Object.values(image_array); // 객체의 키를 배열로 추출
-        var books_images = Object.keys(image_array); // 객체의 키를 배열로 추출
-        
-        console.log(image_array); //00001....
-        console.log(books_image);
-        console.log(books_images);
-        var cnt=0;
-        for(var i=0;i<8;i++){
-            var myurl = await getRealUrl(books_image[i].head_image); //url 가져오기
-            if(myurl==selected_book_src){ //만약 같은경우
-                console.log(myurl);
-                var index="00000"+(i+1);
-                console.log(image_array[index]);
-                //user.current_book = books_image[i].current_book;
-                updateUser(user, index);
-                break;
-            }
-        }
+       // var books_images = Object.keys(image_array); // 객체의 키를 배열로 추출
+       for(var i=0;i<8;i++){
+           var myurl = await getRealUrl(books_image[i].head_image); //url 가져오기
+           if(myurl==selected_book_src){ //만약 같은경우
+               console.log(myurl);
+               var index="00000"+(i+1);
+                data.current_book = index;
+               //console.log(index);
+               //user.current_book = books_image[i].current_book;
+               await updateUser(user, data);
+               break;
+           }
+       }
         $('#book_choice_logout_or_back').attr("src", ".res/img/chick_btn.png");
         $("#book_choice_logout_or_back").empty();
         $("#book_choice_logout_or_back").append(logout1);
-        $('#book_choice_logout_or_back').click(function(){
+        $('#book_choice_logout_or_back').click(async function(){
             console.log("로그아웃버튼누름");
             idCheckDialog.close();
-
 
             //showLogoutDialog();
            
