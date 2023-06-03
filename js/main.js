@@ -1,6 +1,7 @@
 var badges = ["res/dummy/badge1.png","res/dummy/badge2.png", "res/dummy/badge3.png"]; // 더미데이터
 var quests = ["res/dummy/book1.png","res/dummy/book2.png", "res/dummy/book3.png"]; // 더미데이터
 var cur_book;
+var nowChallenge
 
 var user;
 var userInfo;
@@ -25,7 +26,9 @@ var userInfo;
 async function init() {
   badges = await getBadges();
   quests = await getQuests();
-  
+  console.log(userInfo);
+  cur_book = await getBook(userInfo.current_book);
+  nowChallenge = await getRealUrl(cur_book.head_image);
   showBadges();
   showQuests();
   showChallenge();
@@ -67,7 +70,6 @@ function showChallenge() {
      * util의 getNowchallenge를 활용하여 정보를 받아와서
      * 화면에 띄워줌
      */
-    var nowChallenge = "res/dummy/book1.png";
     $("#challengeBack").attr("src", nowChallenge);
 }
 
@@ -75,8 +77,7 @@ function showBookTitle() {
     /**
      * 
      */
-    var bookTitle = "hello";
-    $("#bookTitleMain").text(bookTitle);
+    $("#bookTitleMain").text(cur_book.title);
 }
 
 function quizBtnClicked() {
