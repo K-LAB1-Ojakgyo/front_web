@@ -15,25 +15,31 @@ $(document).ready(function() {
 
 async function showRandomBooks() {
     var image_array=[];
-    image_array = await getRandomBooks(); //random하게 가져오기
-    console.log("img : ");
-    console.log(image_array);
-    if(image_array.length>=4){
-        for(var i=0;i<image_array.length;i++){
-            var temp_string = "#book"+(i+1); //string을 통해 id가져오기
-            var img_id=$(temp_string); //image에 이 id가 들어있음
-            //console.log(image_array[i]);
-            image_array[i]=await getRealUrls(image_array[i]);
-            //console.log(image_array[i]);
-            $(img_id).attr("src",image_array[i]);
-            //console.log(image_array[i]);
-            $(img_id).removeClass('clicked');
-        }
+
+    image_array = await getRandomBook(7, "risa"); //random하게 가져오기
+    var length = $.map(image_array, function(value, key) {
+        return key;
+    }).length;
+    if(length>3){
+        // for(var i=0;i<length;i++){
+            var books_image = Object.values(image_array); // 객체의 키를 배열로 추출
+            console.log(books_image);
+            for(var i=0;i<length;i++){
+                var temp_string = "#book"+(i+1); //string을 통해 id가져오기
+                var img_id=$(temp_string); //image에 이 id가 들어있음
+                image_array[i]=await getRealUrl(books_image[i].head_image);
+                console.log(image_array[i]);
+                $(img_id).attr("src", image_array[i]);
+                $(img_id).removeClass('clicked');
+            }
+
     }else{
-        var book_num = image_array.length;
+        var book_num = length;
+        var books_image = Object.values(image_array); // 객체의 키를 배열로 추출
         for(var i=0;i<book_num;i++){ //0부터 book_num까지(0-1,0-2,0-3..)
             var temp_string = "#book"+(i+1); //string을 통해 id가져오기
             var img_id=$(temp_string); //image에 이 id가 들어있음
+            image_array[i]=await getRealUrl(books_image[i].head_image);
             $(img_id).attr("src",image_array[i]);
             $(img_id).removeClass('clicked');
         }

@@ -1,4 +1,4 @@
-  $(document).ready(function() {
+$(document).ready(function() {
 
     // history.pushState(null, null, location.href);
     // $(window).on('popstate', function() {
@@ -37,6 +37,7 @@ function showBadges() {
      * util의 getRecentBadges를 활용하여 정보를 받아와서
      * 화면에 띄워줌
      */
+    
     var badges = ["res/dummy/badge1.png","res/dummy/badge2.png", "res/dummy/badge3.png"]; // 더미데이터
     $("#badgeBack1").attr("src", badges[0]);
     $("#badgeBack2").attr("src", badges[1]);
