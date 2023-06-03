@@ -2,6 +2,7 @@
     서버와 통신하는 메소드, 다이얼로그, 자동 로그아웃 기능, 사용자 정보, 텍스트 관리
 */
 
+
 function getText(key) {
     var text = "";
     // text.json파일을 파싱하고 key값을 이용하여 원하는 text를 찾아서 반환
@@ -65,6 +66,10 @@ function logout() {
      * 가지고 있는 사용자 정보들을 모두 초기화
      * 메인화면으로 옮기기
      */
+
+
+    localStorage.removeItem("user");
+    localStorage.removeItem("userInfo");
     window.location.href = "login.html";
 }
 
@@ -111,6 +116,10 @@ async function login_front() {
         var idCheckDialog = $("#check_id_dialog")[0];
         var jsonUser = await getUser(id_value);
         console.log(jsonUser);
+        localStorage.setItem("user",id_value);
+        localStorage.setItem("userInfo",JSON.stringify(jsonUser));
+        CurrentUser=localStorage.getItem(id_value);
+       
         $("#dialog_id").text('ID : ');
         $("#dialog_id").append(document.createTextNode(id_value));
 

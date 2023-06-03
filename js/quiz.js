@@ -1,6 +1,9 @@
+var user;
+var userInfo;
 $(document).ready(async function() {
-  $('.page').trigger('click');    
-
+   
+  user=localStorage.getItem("user");  
+  userInfo=localStorage.getItem("userInfo");
   history.pushState(null, null, location.href);
   $(window).on('popstate', function(event) {
     history.go(1);
@@ -15,7 +18,7 @@ $(document).ready(async function() {
 });
 
 var shuffledNumbers;
-var current_user_id = "risa"; // for test
+var userInfo = "risa"; // for test
 var quizImgs = []; // 퀴즈 이미지 순서대로 저장 (정답)
 var submitImgs = ["","","",""]; // 사용자가 배치한 이미지 순서 저장
 
@@ -23,7 +26,7 @@ var data; // 유저 객체
 var book; // 현재 책 정보
 
 async function getInfos(){
-  data = await getUser(current_user_id);
+  data = await getUser(userInfo);
   book = await getBook(data.current_book);
   $("#booktitle").text("< " + book.title + " >");
   quizImgs = await getRealUrls(book.quiz[1]);
@@ -169,5 +172,5 @@ async function successBookInfo(){
   data.read_book[data.current_book] = currentDate; // 새로운 책 추가 (날짜 포함)
   data.current_book = null; // 현재 선택 책 null로 초기화
 
-  await updateUser(current_user_id, data);
+  await updateUser(userInfo, data);
 }

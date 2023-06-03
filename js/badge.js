@@ -57,7 +57,8 @@ function logoutBtnClicked() {
 }
 
 $(document).ready(function() {
-    $('.page').trigger('click');    
+    user=localStorage.getItem("user");  
+    userInfo=localStorage.getItem("userInfo");
 
     history.pushState(null, null, location.href);
   $(window).on('popstate', function() {

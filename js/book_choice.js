@@ -1,7 +1,12 @@
 var isClicked=0;
-
+var user;   //user가 로그인한 아이디
+var userInfo;   //user 정보 
 $(document).ready(function() {
-    $('.page').trigger('click');    
+ 
+    user=localStorage.getItem("user");  
+    userInfo=JSON.parse(localStorage.getItem("userInfo"));
+  
+ 
   history.pushState(null, null, location.href);
   $(window).on('popstate', function() {
     history.go(1);
@@ -18,6 +23,7 @@ async function showRandomBooks() {
     image_array = await getRandomBook(2, "risa"); //random하게 가져오기
     console.log("img : ");
     console.log(image_array);
+    console.log("userinfo : "+typeof(userInfo));
     if(image_array.length>=4){
         for(var i=0;i<image_array.length;i++){
             var temp_string = "#book"+(i+1); //string을 통해 id가져오기
