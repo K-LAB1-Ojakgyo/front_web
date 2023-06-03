@@ -107,18 +107,15 @@ async function selectBtnClicked() {
         image_array = await getRandomBook(bookNum, user); //random하게 가져오기
         console.log(image_array); //00001....
         var books_image = Object.values(image_array); // 객체의 키를 배열로 추출
-        console.log(books_image); //0,1,2,3...
-        console.log(books_image[2].current_book);
-        var index="00000"+2;
-        console.log(image_array[index]);
 
         var cnt=0;
         for(var i=0;i<8;i++){
-            var randomValue = await getRealUrl(books_image[i].head_image);
-            if(randomValue==selected_book_src){
-                console.log(books_image[i].current_book);
-                user.current_book = books_image[i].current_book;
-                updateUser(user, user.current_book);
+            var myurl = await getRealUrl(books_image[i].head_image); //url 가져오기
+            if(myurl==selected_book_src){ //만약 같은경우
+                var index="00000"+(i+1);
+                console.log(image_array[index]);
+                //user.current_book = books_image[i].current_book;
+                updateUser(user, index);
                 break;
             }
         }
