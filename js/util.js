@@ -60,10 +60,8 @@ function showLogoutDialog() {
     $("#btnLogout").click(function() {
         alert("로그아웃클릭!");
         console.log('로그아웃 클릭됨');
+        logout();
     });  
-
-
-    logout();
 }
 
 function logout() {
