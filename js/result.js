@@ -52,7 +52,7 @@ function showBadges(bookcnt,imgPath) {
    
     var div = $('<div>')
     .attr('id',"newdiv")
-    .text("new!")
+    .text("nieuw!")   // new!
     $('#new_badge_zone').append(div);
 }
 
