@@ -32,7 +32,8 @@ function showAutoLogoutDialog() {
     var dialog = document.createElement("dialog");
     dialog.id = "logout_dialog";
     dialog.className = "common_dialog";
-    dialog.innerHTML = "<p id=\"logout_dialog_text\">10초간 응답이 없는 경우 자동 종료됩니다.</p>" + "<p id=\"logout_dialog_cnt\">10</p>" + "<form id=\"dialog_btn_form\" method=\"dialog\"><div class=\"chick_btn\" id=\"logout_dialog_btn\">Click</div></form>";
+    dialog.innerHTML = "<p id=\"logout_dialog_text\">Als er gedurende 10 seconden geen reactie komt, wordt u automatisch uitgelogd.</p>" + "<p id=\"logout_dialog_cnt\">10</p>" + "<form id=\"dialog_btn_form\" method=\"dialog\"><div class=\"chick_btn\" id=\"logout_dialog_btn\">Click</div></form>";
+    // 10초간 응답이 없는 경우 자동 종료됩니다.
     $(".page").append(dialog);
     dialog.showModal();
     var cnt = 10
@@ -133,7 +134,8 @@ async function login_front() {
             });
         } else {    //아이디 없는경우 new user
             $("#dialog_info").text("");
-            var infoNode = "Since the account does not exist," + "<br>" + "a new account will be created.";
+          
+            var infoNode = "Aangezien het account niet bestaat, wordt er " + "<br>" + " een nieuw account aangemaakt."; // Since the account does not exist, <br> a new account will be created.
 
             $("#dialog_info").append(infoNode);
             idCheckDialog.showModal();
