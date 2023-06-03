@@ -1,6 +1,7 @@
 var badges = ["res/dummy/badge1.png","res/dummy/badge2.png", "res/dummy/badge3.png"]; // 더미데이터
 var quests = ["res/dummy/book1.png","res/dummy/book2.png", "res/dummy/book3.png"]; // 더미데이터
 var cur_book;
+
 var user;
 var userInfo;
 
@@ -24,6 +25,7 @@ var userInfo;
 async function init() {
   badges = await getBadges();
   quests = await getQuests();
+  
   showBadges();
   showQuests();
   showChallenge();
