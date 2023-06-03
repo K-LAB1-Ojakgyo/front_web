@@ -15,16 +15,17 @@ $(document).ready(function() {
 
 async function showRandomBooks() {
     var image_array=[];
-    image_array = await getRandomBook(2, "risa"); //random하게 가져오기
+    image_array = await getRandomBook(3, "risa"); //random하게 가져오기
     console.log("img : ");
     console.log(image_array);
     if(image_array.length>=4){
         for(var i=0;i<image_array.length;i++){
+            console.log("hihi");
             var temp_string = "#book"+(i+1); //string을 통해 id가져오기
             var img_id=$(temp_string); //image에 이 id가 들어있음
-            //console.log(image_array[i]);
+            console.log(image_array[i]);
             image_array[i]=await getRealUrls(image_array[i]);
-            //console.log(image_array[i]);
+            console.log(image_array[i]);
             $(img_id).attr("src",image_array[i]);
             //console.log(image_array[i]);
             $(img_id).removeClass('clicked');
