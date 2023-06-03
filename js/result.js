@@ -73,9 +73,9 @@ function logoutBtnClicked() {
 }
 
 $(document).ready(function() {
-    $('.page').on('click', function() {
-        console.log("클릭 이벤트 발생");
-      });
+    user=localStorage.getItem("user");  
+    userInfo=localStorage.getItem("userInfo");
+
     history.pushState(null, null, location.href);
   $(window).on('popstate', function() {
     history.go(1);
