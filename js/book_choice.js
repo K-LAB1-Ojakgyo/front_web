@@ -79,10 +79,6 @@ function refreshBtnClicked() {
     showRandomBooks();
 }
 
-function logoutBtnClicked() {
-    showLogoutDialog(); // util에 있음
-}
-
 function selectBtnClicked() {
     // 완료 다이얼로그가 뜨면서 5초 후 login 화면으로 이동
 
