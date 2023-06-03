@@ -58,6 +58,22 @@ body{
     transform: scale(1.1);
 }
 
+#logout_back_btn {
+    position: absolute;
+    left: 0;
+    bottom: 30px;
+    margin-top: 25px;
+    margin-left: 20px;
+}
+
+#logout_btn {
+    position: absolute;
+    right: 0;
+    bottom: 30px;
+    margin-top: 25px;
+    margin-right: 20px;
+}
+
 #badge_back {
     left: 50%;
     margin-left: -162px;
@@ -176,4 +192,14 @@ body{
 #logout_dialog_btn {
     margin-left: 222px;
     margin-top: 20px;
+}
+
+#logout_btn_dialog_text{
+    font-family: 'Baloo 2', 'sans-serif', 'monospace';
+    font-size: 60px;
+    color: #036b3f;
+    margin-left: 45px;
+    margin-right: 45px;
+    margin-top: 100px;
+    margin-bottom: 15px;
 }
