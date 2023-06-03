@@ -131,7 +131,7 @@ async function login_front() {
         
         if(jsonUser==null){
             valid_id=false;
-        }
+        } else valid_id=true;
         if(jsonUser==null || jsonUser.current_book=="-1"){
             isChallengeValid=false; //book_choice로 가기
         }else{
@@ -139,7 +139,7 @@ async function login_front() {
         }
 
         localStorage.setItem("user",id_value);
-        localStorage.setItem("userInfo",JSON.stringify(jsonUser));
+        localStorage.setItem("userInfo", JSON.stringify(jsonUser));
    
         $("#dialog_id").text('ID : ');
         $("#dialog_id").append(document.createTextNode(id_value));
@@ -200,12 +200,12 @@ async function getNowChallenge() {
     return bookObj.head_image;
 }
 
-async function getBadges(users) {
+async function getBadges(user) {
     /**
      * 서버 통신 필요
      * 모든 모은 배지 정보 받아오기 (최근 순서로 sort되어 있어야 함)
      */
-    var user = await getUser("risa");
+    //var user = await getUser("risa");
     console.log(user);
     var badge_list = Object.values(user.badge_list);
     var url_list = await getRealUrls(badge_list);
@@ -213,12 +213,12 @@ async function getBadges(users) {
     return url_list;
 }
 
-async function getQuests(users) {
+async function getQuests(user) {
     /**
      * 서버 통신 필요
      * 모든 해결한 퀘스트 정보 받아오기 (최근 순서로 sort되어 있어야 함)
      */
-    var user = await getUser("risa");
+    //var user = await getUser("risa");
     console.log(user);
     var read_book_list = Object.keys(user.read_book);
 

@@ -61,7 +61,7 @@ var userInfo;
 
 $(document).ready(function() {
     user=localStorage.getItem("user");  
-    userInfo=localStorage.getItem("userInfo");
+    userInfo=JSON.parse(localStorage.getItem("userInfo"));
 
     history.pushState(null, null, location.href);
   $(window).on('popstate', function() {
@@ -78,8 +78,8 @@ $(document).ready(function() {
 });
 
 async function init() {
-    badges = await getBadges();
-    quests = await getQuests();
+    badges = await getBadges(userInfo);
+    quests = await getQuests(userInfo);
     showBadges();
     showQuests();
 }
