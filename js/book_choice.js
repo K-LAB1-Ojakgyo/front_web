@@ -21,7 +21,7 @@ $(document).ready(function() {
 async function showRandomBooks() {
     var image_array=[];
 
-    image_array = await getRandomBook(8, "heejin"); //random하게 가져오기
+    image_array = await getRandomBook(8, user); //random하게 가져오기
     var length = $.map(image_array, function(value, key) {
         return key;
     }).length;
