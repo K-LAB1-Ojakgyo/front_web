@@ -21,20 +21,31 @@ async function showRandomBooks() {
     var length = $.map(image_array, function(value, key) {
         return key;
     }).length;
+    console.log(image_array);
     console.log(length);
+
+
+
+    // 추출한 키를 jQuery를 사용하여 처리
+    // $.each(keys, function(index, key) {
+    //     console.log(key); // 키 출력
+    //     console.log(image_array[key]); // 해당 키에 대한 값 출력
+    // });
+
+
     if(length>3){
-        console.log("hihi2");
-        for(var i=0;i<length;i++){
-            console.log("hihi");
+        // for(var i=0;i<length;i++){
             var temp_string = "#book"+(i+1); //string을 통해 id가져오기
             var img_id=$(temp_string); //image에 이 id가 들어있음
-            console.log(image_array[i]);
-            image_array[i]=await getRealUrl(image_array[i].head_image);
-            console.log(image_array[i]);
-            $(img_id).attr("src",image_array[i]);
-            //console.log(image_array[i]);
-            $(img_id).removeClass('clicked');
-        }
+            var books_image = Object.values(image_array); // 객체의 키를 배열로 추출
+            console.log(books_image[1]);
+
+            for(var i=0;i<length;i++){
+                image_array[i]=await getRealUrl(books_image[i].head_image);
+                $(img_id).attr("src", image_array[i]);
+                $(img_id).removeClass('clicked');
+            }
+            
     }else{
         console.log("hihi2");
         var book_num = length;
