@@ -56,6 +56,9 @@ function logoutBtnClicked() {
     showLogoutDialog(); // util에 있음
 }
 
+var user;
+var userInfo;
+
 $(document).ready(function() {
     user=localStorage.getItem("user");  
     userInfo=localStorage.getItem("userInfo");
@@ -76,7 +79,7 @@ $(document).ready(function() {
 
 async function init() {
     badges = await getBadges();
-    //quests = await getQuests();
+    quests = await getQuests();
     showBadges();
     showQuests();
 }
