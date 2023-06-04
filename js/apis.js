@@ -163,7 +163,6 @@ const getRandomBook = async (bookNum, userID) => {
   for(let i = 0; i<bookNum; i++){
     book_list[books_keys[i]] = books[rest_book_key_list[i]]
   }
-  console.log(book_list)
   return book_list
 }
 

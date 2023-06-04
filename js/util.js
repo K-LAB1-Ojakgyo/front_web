@@ -125,11 +125,11 @@ async function login_front() {
    //console.log(jsonUser.current_book);
     
 
-    if(jsonUser==null){
-        isChallengeValid=false; //book_choice로 가기
-    }else{
-        isChallengeValid=true; //main으로 가기
-    }
+    //if(jsonUser==null){
+    //    isChallengeValid=false; //book_choice로 가기
+    //}else{
+    //    isChallengeValid=true; //main으로 가기
+    //}
 
     /*예담이가 추가한 코드*/
     
@@ -139,26 +139,20 @@ async function login_front() {
         var idCheckDialog = $("#check_id_dialog")[0];
         var jsonUser = await getUser(id_value);
         console.log(jsonUser);
-
+        
         if(jsonUser==null){
             valid_id=false;
-        }else{
-            valid_id=true;
         }
-
         if(jsonUser==null || jsonUser.current_book=="-1"){
             isChallengeValid=false; //book_choice로 가기
         }else{
             isChallengeValid=true; //main으로 가기
         }
 
-        
         localStorage.setItem("user",id_value);
         localStorage.setItem("userInfo",JSON.stringify(jsonUser));
-        user=localStorage.getItem("user");
-        userInfo=JSON.parse(localStorage.getItem("userInfo"));
-        //console.log("risa badeg :"+ JSON.stringify(userInfo.badge_list));
-
+        CurrentUser=localStorage.getItem(id_value);
+       
         $("#dialog_id").text('ID : ');
         $("#dialog_id").append(document.createTextNode(id_value));
 
@@ -190,8 +184,8 @@ async function login_front() {
 
             $("#dialog_info").append(infoNode);
             idCheckDialog.showModal();
-            $("#login_btn").click(function() {
-                addUser(id_value);
+            $("#login_btn").click(async function() {
+                await addUser(id_value, null);
                 window.location.href = "book_choice.html";
 
             });
