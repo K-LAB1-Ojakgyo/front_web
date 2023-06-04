@@ -103,7 +103,8 @@ async function selectBtnClicked() {
         console.log(selected_book_src);
         var image_array = []
         var bookNum=8;
-        image_array = await getRandomBook(bookNum, user); //random하게 가져오기
+        //image_array = await getRandomBook(bookNum, user); //random하게 가져오기
+        image_array = await getAllBook(); //random하게 가져오기
         var books_image = Object.values(image_array); // 객체의 키를 배열로 추출
        // var books_images = Object.keys(image_array); // 객체의 키를 배열로 추출
        for(var i=0;i<8;i++){

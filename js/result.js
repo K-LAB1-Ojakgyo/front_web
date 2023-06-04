@@ -59,12 +59,15 @@ function showBadges(bookcnt,imgPath) {
     $('#new_badge_zone').append(div);
 }
 
-function nextBtnClicked() {
+async function nextBtnClicked() {
     // 책 고르는 화면으로 이동
      /**서버에서 남은 책 정보 받아오기 */
-     var bookcnt=0;
 
-     if(bookcnt==0){
+     var bookcnt=await getRandomBook(8, user);
+     var length = $.map(bookcnt, function(value, key) {
+        return key;
+    }).length;
+     if(length==0){
         window.location.href = "ending.html"
      }else{
         window.location.href = "book_choice.html";
@@ -97,6 +100,11 @@ $(document).ready(function() {
 
 async function init() {
     imgPath = await getBadges(userInfo);
-    newImgPath = imgPath[imgPath.length - 1];
+    bookID = userInfo.current_book;
+    bookObj = await getBook(bookID);
+    //newImgPath =bookObj.badge.value;
+    newImgList = Object.values(bookObj.badge);
+    newImgPath = await getRealUrl(newImgList[0]);
+    //newImgPath = imgPath[imgPath.length - 1];
     showBadges(21, imgPath);
 }

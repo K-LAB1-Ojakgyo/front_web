@@ -24,11 +24,13 @@ var userInfo;
 });
 
 async function init() {
+  console.log(userInfo);
   badges = await getBadges(userInfo);
   quests = await getQuests(userInfo);
   console.log(userInfo);
   cur_book = await getBook(userInfo.current_book);
   nowChallenge = await getRealUrl(cur_book.head_image);
+
   showBadges();
   showQuests();
   showChallenge();
