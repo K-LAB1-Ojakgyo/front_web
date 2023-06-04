@@ -159,26 +159,8 @@ const getRandomBook = async (bookNum, userID) => {
 
   book_list = {}
 
-  /*임시 코드*/
-//   if(length>=4){
-//     for(var i=0;i<4;i++){
-//         var randomIndex=Object.keys(user_read_book);
-//         var randomKey=randomIndex[Math.floor(Math.random() * randomIndex.length)];
-//         var randomValue = user_read_book[randomKey].head_image;
-//         console.log(randomValue);
-//         if($.inArray(randomValue, random_array)==-1){
-//             random_array.push(randomValue);
-//         }
-//     }
-// }
-  /*임시코드 끝 */
-
   /*북 갯수만큼 book_list에 넣는다 */
   for(let i = 0; i<bookNum; i++){
-    //var randomKey=Math.floor(Math.random() * rest_book_key_list.length);
-  //   if($.inArray(randomValue, random_array)==-1){
-  //     random_array.push(randomValue);
-  // }
     book_list[books_keys[i]] = books[rest_book_key_list[i]]
   }
   console.log(book_list)
