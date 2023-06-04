@@ -157,7 +157,7 @@ async function login_front() {
         localStorage.setItem("userInfo",JSON.stringify(jsonUser));
         user=localStorage.getItem("user");
         userInfo=JSON.parse(localStorage.getItem("userInfo"));
-        console.log("risa badeg :"+ JSON.stringify(userInfo.badge_list));
+        //console.log("risa badeg :"+ JSON.stringify(userInfo.badge_list));
 
         $("#dialog_id").text('ID : ');
         $("#dialog_id").append(document.createTextNode(id_value));
