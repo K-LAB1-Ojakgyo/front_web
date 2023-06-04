@@ -29,8 +29,8 @@ async function init() {
   quests = await getQuests(userInfo);
   console.log(userInfo);
   cur_book = await getBook(userInfo.current_book);
-  console.log(cur_book);
   nowChallenge = await getRealUrl(cur_book.head_image);
+
   showBadges();
   showQuests();
   showChallenge();

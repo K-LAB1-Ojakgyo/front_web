@@ -221,6 +221,7 @@ async function getBadges(user) {
     //var user = await getUser("risa");
     console.log(user);
     var badge_list = Object.values(user.badge_list);
+    console.log(badge_list);
 
     // remove -1
     const index = badge_list.indexOf("-1");
