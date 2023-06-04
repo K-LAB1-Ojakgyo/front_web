@@ -97,6 +97,11 @@ $(document).ready(function() {
 
 async function init() {
     imgPath = await getBadges(userInfo);
-    newImgPath = imgPath[imgPath.length - 1];
+    bookID = userInfo.current_book;
+    bookObj = await getBook(bookID);
+    //newImgPath =bookObj.badge.value;
+    newImgList = Object.values(bookObj.badge);
+    newImgPath = await getRealUrl(newImgList[0]);
+    //newImgPath = imgPath[imgPath.length - 1];
     showBadges(21, imgPath);
 }

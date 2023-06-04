@@ -221,6 +221,15 @@ async function getBadges(user) {
     //var user = await getUser("risa");
     console.log(user);
     var badge_list = Object.values(user.badge_list);
+
+    // remove -1
+    const index = badge_list.indexOf("-1");
+    if (index > -1) {
+        badge_list.splice(index, 1);
+    }
+
+    console.log(badge_list);
+
     var url_list = await getRealUrls(badge_list);
     console.log(url_list);
     return url_list;
@@ -234,6 +243,12 @@ async function getQuests(user) {
     //var user = await getUser("risa");
     console.log(user);
     var read_book_list = Object.keys(user.read_book);
+
+    // remove -1
+    const index = read_book_list.indexOf("-1");
+    if (index > -1) {
+        read_book_list.splice(index, 1);
+    }
 
     var books = await getAllBook();
     var books_list = [];
