@@ -93,7 +93,7 @@ async function selectBtnClicked() {
     if(isClicked==1){
         var idCheckDialog = $("#book_choice_dialog")[0];
         var infoNode = "Het kiezen van het boek is voltooid!"; // The book selection is complete!
-        var logout1="logout";
+        var logout1="Uitloggen";
         $("#dialog_title").empty();
         $("#dialog_title").append(infoNode);
         idCheckDialog.showModal();
@@ -133,7 +133,7 @@ async function selectBtnClicked() {
     }else{
         var idCheckDialog = $("#book_choice_dialog")[0];
         var infoNode = "Kies het boek dat je wilt lezen."; // Please choose the book you want to read.
-        var back="back";
+        var back="Terug";
         $("#dialog_title").empty();
         $("#dialog_title").append(infoNode);
         idCheckDialog.showModal();

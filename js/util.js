@@ -63,7 +63,7 @@ function showLogoutDialog() {
         var dialog = document.createElement("dialog");
         dialog.id = "logout_btn_dialog";
         dialog.className = "common_dialog";
-        dialog.innerHTML = "<p id=\"logout_btn_dialog_text\">wil je uitloggen?</p>" + "<div id=\"logout_back_btn\" class=\"chick_btn\">◀ Rug</div>" + "<div id=\"logout_btn\" class=\"chick_btn\">Logout ▶</div>";
+        dialog.innerHTML = "<p id=\"logout_btn_dialog_text\">wil je uitloggen?</p>" + "<div id=\"logout_back_btn\" class=\"chick_btn\">◀ Rug</div>" + "<div id=\"logout_btn\" class=\"chick_btn\">Uitloggen ▶</div>";
         // <div class="chick_btn" id="logout_back_btn">◀ Rug</div>   <!-- back -->
         // <div class="chick_btn" id="logout_btn">Logout ▶</div>
         $(".page").append(dialog);
@@ -134,7 +134,7 @@ async function login_front() {
     /*예담이가 추가한 코드*/
     
     if(id_value==""){
-        alert("아이디를 입력해주세요");
+        alert("Vul je naam in!");
     }else{
         var idCheckDialog = $("#check_id_dialog")[0];
         var jsonUser = await getUser(id_value);
